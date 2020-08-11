@@ -38,5 +38,10 @@ Here is a template for new release sections
 ## [1.0.0] Initial release
 
 ### Added
-- 
+- ERM as pdf file format
+- ERM as er file format
+- datamodel is documented as ERM
+- datamodel as joint table inheritance model and normalized 
+- datamodel as concrete table inheritance model and human readable 
+- datapackage for each datamodel 
 
