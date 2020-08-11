@@ -10,4 +10,4 @@ Releases are stored in the release history folder. A user can continue to use ol
 # Oedatamodel and Datapackage
 
 We publish a datapackage for ever release. The datapackage contains a oemetadata.json file with example 
-or template contend and CSV files that represent the data model.
+or template content and CSV files that represent the data model.
