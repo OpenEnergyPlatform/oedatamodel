@@ -6,8 +6,3 @@ future contains the latest release, if there are changes that should be publishe
 a new version of the data model is created in the future folder. 
 
 Releases are stored in the release history folder. A user can continue to use older versions if necessary. 
-
-# Oedatamodel and Datapackage
-
-We publish a datapackage for every release. The datapackage contains a oemetadata.json file with example 
-or template content and CSV files that represent the data model.
