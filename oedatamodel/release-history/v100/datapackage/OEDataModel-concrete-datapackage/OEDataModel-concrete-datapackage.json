@@ -107,40 +107,39 @@
     "dialect":
         {"delimiter": ";",
         "decimalSeparator": "."} },
-        
-    {"profile": "tabular-data-resource",
-        "name": "oed-readable_timeseries",
-        "path": "oedatamodel-readable_timeseries.csv",
-        "format": "csv",
-        "encoding" : "UTF-8",
-        "schema": {
-            "fields": [
-                {"name": "scalar_id", "description": "Unique identifier", "type": "bigint", "unit": null},
-                {"name": "scenario_id", "description": "Scenario name", "type": "text", "unit": null},
-                {"name": "region", "description": "Country or region", "type": "json", "unit": null},
-                {"name": "input_energy_vector", "description": "", "type": "integer", "unit": null},
-                {"name": "output_energy_vector", "description": "", "type": "text", "unit": null},
-                {"name": "parameter_name", "description": "", "type": "text", "unit": null},
-                {"name": "technology", "description": "", "type": "text", "unit": null},
-                {"name": "technology_type", "description": "", "type": "text", "unit": null},
-                {"name": "unit", "description": "Parameter unit", "type": "text", "unit": null},
-                {"name": "timeindex start", "description": "Start timestemp", "type": "timestamp", "unit": null},
-                {"name": "timeindex stop", "description": "Stop timestemp", "type": "timestamp", "unit": null},
-                {"name": "timeindex resolution", "description": "Timesteps", "type": "intervall", "unit": null},
-                {"name": "series", "description": "Timesteps", "type": "array[decimal]", "unit": null},
-                {"name": "tags", "description": "Free classification with key-value pairs", "type": "hstore", "unit": null},
-                {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
-                {"name": "source", "description": "Source", "type": "text", "unit": null},
-                {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
-            "primaryKey": ["scalar_id"],
-            "foreignKeys": [{
-                    "fields": ["scenario_id"],
-                    "reference": {
-                        "resource": "oed_scenario",
-                        "fields": ["scenario_id"] } } ] },
-        "dialect":
-            {"delimiter": ";",
-            "decimalSeparator": "."} } ],
+        {"profile": "tabular-data-resource",
+            "name": "oed-readable_timeseries",
+            "path": "oedatamodel-readable_timeseries.csv",
+            "format": "csv",
+            "encoding" : "UTF-8",
+            "schema": {
+                "fields": [
+                    {"name": "scalar_id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "scenario_id", "description": "Scenario name", "type": "text", "unit": null},
+                    {"name": "region", "description": "Country or region", "type": "json", "unit": null},
+                    {"name": "input_energy_vector", "description": "", "type": "integer", "unit": null},
+                    {"name": "output_energy_vector", "description": "", "type": "text", "unit": null},
+                    {"name": "parameter_name", "description": "", "type": "text", "unit": null},
+                    {"name": "technology", "description": "", "type": "text", "unit": null},
+                    {"name": "technology_type", "description": "", "type": "text", "unit": null},
+                    {"name": "unit", "description": "Parameter unit", "type": "text", "unit": null},
+                    {"name": "timeindex start", "description": "Start timestemp", "type": "timestamp", "unit": null},
+                    {"name": "timeindex stop", "description": "Stop timestemp", "type": "timestamp", "unit": null},
+                    {"name": "timeindex resolution", "description": "Timesteps", "type": "intervall", "unit": null},
+                    {"name": "series", "description": "Timesteps", "type": "array[decimal]", "unit": null},
+                    {"name": "tags", "description": "Free classification with key-value pairs", "type": "hstore", "unit": null},
+                    {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
+                    {"name": "source", "description": "Source", "type": "text", "unit": null},
+                    {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
+                "primaryKey": ["scalar_id"],
+                "foreignKeys": [{
+                        "fields": ["scenario_id"],
+                        "reference": {
+                            "resource": "oed_scenario",
+                            "fields": ["scenario_id"] } } ] },
+            "dialect":
+                {"delimiter": ";",
+                "decimalSeparator": "."} } ],
 
 "review": {
     "path": "",
