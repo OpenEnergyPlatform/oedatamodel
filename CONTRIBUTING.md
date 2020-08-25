@@ -4,7 +4,7 @@
 
 - [Git](https://git-scm.com/)
 
-### Contributions of OEP website
+### Contributions of OEdatamodel
 ### Workflow
 
 The development of a feature for this repository is inspired from the workflow described 
