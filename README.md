@@ -58,7 +58,7 @@ Oemetadata provides a [detailed description](https://github.com/OpenEnergyPlatfo
 The following examples are intended to provide a simple example as well as a detailed descriptoion on each field/column. For completeness we also link to
 other examples already provided as file. 
 
-Example Table: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)
+Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)
 
 ### Scenario
 
@@ -136,9 +136,12 @@ Example Table: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oeda
 
 - Example  Datapackage
 
-    - Example JSON: OEMetadata
+    - Example JSON: [OEDataModel-concrete-datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage.json)
 
     - Example CSV: 
+        - [concrete-datapackage_scalar](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scalar.csv)
+        - [OEDataModel-concrete-datapackage_scenario](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scenario.csv)
+        - [OEDataModel-concrete-datapackage_timeseries](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_timeseries.csv)
 
 # Edit the Entity Relationship Modell
 
