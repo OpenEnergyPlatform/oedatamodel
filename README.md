@@ -63,14 +63,14 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 ### Scenario
 
-| **Field**         | **Description**            |
-|-------------------|----------------------------|
-|   scenario id     |                            |
-|   scenario        |                            |
-|   region          |                            |
-|   year            |                            |
-|   source          |                            |
-|   comment         |                            |
+| **Field**         |  **Datatype** | **Description**            |
+|-------------------|---------------|----------------------------|
+|   scenario id     |     int       |                            |
+|   scenario        |     text      |                            |
+|   region          |     json      |                            |
+|   year            |     int       |                            |
+|   source          |     text      |                            |
+|   comment         |     text      |                            |
 
 
 | **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
@@ -82,22 +82,22 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 ### Scalar
 
-| **Field**              | **Description**            |
-|------------------------|----------------------------|
-|   timeseries id        |                            |
-|   scenario id          |                            |
-|   region               |                            |
-|   input energy vector  |                            |
-|   output energy vector |                            |
-|   parameter name       |                            |
-|   technology           |                            |
-|   technology type      |                            |
-|   value                |                            |
-|   unit                 |                            |
-|   tags                 |                            |
-|   method               |                            |
-|   source               |                            |
-|   comment              |                            |
+| **Field**              |  **Datatype** | **Description**            |
+|------------------------|---------------|----------------------------|
+|   scalar id            |      int      |                            |
+|   scenario id          |      int      |                            |
+|   region               |      json     |                            |
+|   input energy vector  |      text     |                            |
+|   output energy vector |      text     |                            |
+|   parameter name       |      text     |                            |
+|   technology           |      text     |                            |
+|   technology type      |      text     |                            |
+|   value                |      decimal  |                            |
+|   unit                 |      text     |                            |
+|   tags                 |      json     |                            |
+|   method               |      json     |                            |
+|   source               |      text     |                            |
+|   comment              |      text     |                            |
 
 
 | **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
@@ -108,25 +108,25 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 ### Timeseries
 
-| **Field**              | **Description**            |
-|------------------------|----------------------------|
-|   timeseries id        |                            |
-|   scenario id          |                            |
-|   region               |                            |
-|   input energy vector  |                            |
-|   output energy vector |                            |
-|   parameter name       |                            |
-|   technology           |                            |
-|   technology type      |                            |
-|   timeindex start      |                            |
-|   timeindex stop       |                            |
-|   timeindex resolution |                            |
-|   series               |                            |
-|   unit                 |                            |
-|   tags                 |                            |
-|   method               |                            |
-|   source               |                            |
-|   comment              |                            |
+| **Field**              |  **Datatype** | **Description**            |
+|------------------------|---------------|----------------------------|
+|   timeseries id        |     int       |                            |
+|   scenario id          |     int       |                            |
+|   region               |     json      |                            |
+|   input energy vector  |     text      |                            |
+|   output energy vector |     text      |                            |
+|   parameter name       |     text      |                            |
+|   technology           |     text      |                            |
+|   technology type      |     text      |                            |
+|   timeindex start      |     [timestamp](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          |                            |
+|   timeindex stop       |     timestamp |                            |
+|   timeindex resolution |     [intervall](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          |                            |
+|   series               |     [decimal] |                            |
+|   unit                 |     text      |                            |
+|   tags                 |     json      |                            |
+|   method               |     json      |                            |
+|   source               |     text      |                            |
+|   comment              |     text      |                            |
 
 
 | **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
