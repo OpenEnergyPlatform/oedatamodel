@@ -41,7 +41,105 @@ This includes:
 - The metadata string itself can be validated using the [Open Metadata Integration (omi)](https://github.com/OpenEnergyPlatform/omi) tool
  
 Oemetadata provides a [detailed description](https://github.com/OpenEnergyPlatform/oemetadata/blob/develop/metadata/latest/metadata_key_description.md) with examples for each key in the metadata string.
- 
+
+# Oedatamodel - Usage
+
+## OEDataModel variations
+- OEDataModel-concrete
+    - Main usage as CSV files
+    - Tool that maps the concrete model to the normalization model will be provided. Please be aware about new features.
+
+- OEDataModel-normalization
+    - Main usage database (realtional database like postgreSQL)
+    - Optimized to store data in a relational data model 
+
+## Data model - Examples
+
+The following examples are intended to provide a simple example as well as a detailed descriptoion on each field/column. For completeness we also link to
+other examples already provided as file. 
+
+Example Table: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)
+
+### Scenario
+
+| **Field**         | **Description**            |
+|-------------------|----------------------------|
+|   scenario id     |                            |
+|   scenario        |                            |
+|   region          |                            |
+|   year            |                            |
+|   source          |                            |
+|   comment         |                            |
+
+
+| **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
+|----------------------|--------------|------------|-----------|------------|--------------|
+| 0                    | 2035         | World      | 2020      | path       |Main scenario |
+| ...                  | ...          | ...        | ...       | ...        | ...          |
+
+
+
+### Scalar
+
+| **Field**              | **Description**            |
+|------------------------|----------------------------|
+|   timeseries id        |                            |
+|   scenario id          |                            |
+|   region               |                            |
+|   input energy vector  |                            |
+|   output energy vector |                            |
+|   parameter name       |                            |
+|   technology           |                            |
+|   technology type      |                            |
+|   value                |                            |
+|   unit                 |                            |
+|   tags                 |                            |
+|   method               |                            |
+|   source               |                            |
+|   comment              |                            |
+
+
+| **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
+|-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
+| TODO   | TODO | TODO      | TODO | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+| ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+
+
+### Timeseries
+
+| **Field**              | **Description**            |
+|------------------------|----------------------------|
+|   timeseries id        |                            |
+|   scenario id          |                            |
+|   region               |                            |
+|   input energy vector  |                            |
+|   output energy vector |                            |
+|   parameter name       |                            |
+|   technology           |                            |
+|   technology type      |                            |
+|   timeindex start      |                            |
+|   timeindex stop       |                            |
+|   timeindex resolution |                            |
+|   series               |                            |
+|   unit                 |                            |
+|   tags                 |                            |
+|   method               |                            |
+|   source               |                            |
+|   comment              |                            |
+
+
+| **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
+|-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
+| TODO   | TODO | TODO      | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+| ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+
+
+- Example  Datapackage
+
+    - Example JSON: OEMetadata
+
+    - Example CSV: 
+
 # Edit the Entity Relationship Modell
 
 For the generation of an ERM we use this [erm tool](https://github.com/BurntSushi/erd). The [er or erd](https://github.com/BurntSushi/erd#the-er-file-format) file format offers a simple syntax and 
