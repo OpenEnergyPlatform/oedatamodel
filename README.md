@@ -51,7 +51,8 @@ Oemetadata provides a [detailed description](https://github.com/OpenEnergyPlatfo
 
 - OEDataModel-normalization
     - Main usage database (realtional database like postgreSQL)
-    - Optimized to store data in a relational data model 
+    - Optimized to store data in a relational data model
+    - Normalization for practical data relationships and reduced/no redundant fields to avoid redundant data
 
 ## Data model - Examples
 
