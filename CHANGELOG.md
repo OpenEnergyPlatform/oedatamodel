@@ -29,7 +29,8 @@ Here is a template for new release sections
 ## Current
 
 ### Added
--
+- Improve description for each posssible table 
+- Provide table examples 
 
 ### Changed
 -
