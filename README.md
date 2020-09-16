@@ -54,14 +54,18 @@ Oemetadata provides a [detailed description](https://github.com/OpenEnergyPlatfo
     - Optimized to store data in a relational data model
     - Normalization for practical data relationships and reduced/no redundant fields to avoid redundant data
 
-## Data model - Examples
+## Fields that are not present or empty in your data
+
+When transferring data from your own data format to the oedatamodel, it may happen that fields cannot be filled properly. In this case we recommend not to leave the field empty and to insert the value "unkown" into the field.
+
+## Description and examples
 
 The following examples are intended to provide a simple example as well as a detailed descriptoion on each field/column. For completeness we also link to
 other examples already provided as file. 
 
 Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)
 
-### Scenario
+### Scenario description
 
 | **Field**         |  **Datatype** | **Description**            |
 |-------------------|---------------|----------------------------|
@@ -72,6 +76,7 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 |   source          |     text      |                            |
 |   comment         |     text      |                            |
 
+### Example table:
 
 | **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
 |----------------------|--------------|------------|-----------|------------|--------------|
@@ -80,7 +85,7 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 
 
-### Scalar
+### Scalar description
 
 | **Field**              |  **Datatype** | **Description**            |
 |------------------------|---------------|----------------------------|
@@ -99,6 +104,7 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 |   source               |      text     |                            |
 |   comment              |      text     |                            |
 
+### Example table:
 
 | **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
@@ -106,7 +112,7 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 
-### Timeseries
+### Timeseries description
 
 | **Field**              |  **Datatype** | **Description**            |
 |------------------------|---------------|----------------------------|
@@ -128,6 +134,7 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 |   source               |     text      |                            |
 |   comment              |     text      |                            |
 
+### Example table:
 
 | **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
