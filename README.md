@@ -19,7 +19,7 @@ that can be implemented on a database (e.g. postgresql). Here tables, relations,
 data types are provided. The ERM "oedatamodel-readable.pdf" is provided additionally and is designed 
 to simplify the editing of the data by a user. It also provides tables and relations as well as column 
 names and datatypes, but the tables are in a less normalized format. We recommend this version of the 
-data model for the implementation in e.g. csv tables because the advantage of the human readable format 
+data model for the implementation in e.g. csv tables because the advantage of the more human usable format 
 is not optimal for the technical usage in a database. 
 
 In addition, the raw files (file format: .er) from which the PDF respectively the ERM is generated are
@@ -60,8 +60,8 @@ When transferring data from your own data format to the oedatamodel, it may happ
 
 ## Description and examples
 
-The following examples are intended to provide a simple example as well as a detailed descriptoion on each field/column. For completeness we also link to
-other examples already provided as file. 
+The following examples are intended to provide a simple example table as well as a detailed descriptoion on each field/column. For completeness we also link to
+the datapacke examples which are already provided as file. 
 
 Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)
 
