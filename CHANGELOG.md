@@ -29,7 +29,7 @@ Here is a template for new release sections
 ## Current
 
 ### Added
-- Improve description for each posssible table 
+- Improve description for each posssible table (column)
 - Provide table examples 
 
 ### Changed
