@@ -69,18 +69,18 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 | **Field**         |  **Datatype** | **Description**            |
 |-------------------|---------------|----------------------------|
-|   scenario id     |     int       |                            |
-|   scenario        |     text      |                            |
-|   region          |     json      |                            |
-|   year            |     int       |                            |
-|   source          |     text      |                            |
-|   comment         |     text      |                            |
+|   scenario id     |     int       | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns.                           |
+|   scenario        |     text      | Name of the scenario.                           |
+|   region          |     json      | It describes the geographical scope of the dataset.                           |
+|   year            |     int       | It describes the time frame of the dataset.                           |
+|   source          |     text      | Human readable title of the source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
+|   comment         |     text      | Free text comment on what's been done.                           |
 
 ### Example table:
 
 | **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
 |----------------------|--------------|------------|-----------|------------|--------------|
-| 0                    | 2035         | World      | 2020      | path       |Main scenario |
+| 1                    | 2035         | World      | 2020      | path       |Main scenario |
 | ...                  | ...          | ...        | ...       | ...        | ...          |
 
 
@@ -89,20 +89,20 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 | **Field**              |  **Datatype** | **Description**            |
 |------------------------|---------------|----------------------------|
-|   scalar id            |      int      |                            |
-|   scenario id          |      int      |                            |
-|   region               |      json     |                            |
-|   input energy vector  |      text     |                            |
-|   output energy vector |      text     |                            |
-|   parameter name       |      text     |                            |
-|   technology           |      text     |                            |
-|   technology type      |      text     |                            |
-|   value                |      decimal  |                            |
-|   unit                 |      text     |                            |
-|   tags                 |      json     |                            |
-|   method               |      json     |                            |
-|   source               |      text     |                            |
-|   comment              |      text     |                            |
+|   scalar id            |      int      | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns.                           |
+|   scenario id          |      int      | A foreign key is a field that refers to a primary key column in another table.                           |
+|   region               |      json     | It describes the area name in which a scalar operates.                           |
+|   input energy vector  |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.                           |
+|   output energy vector |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.                           |
+|   parameter name       |      text     | It describes a considered property of an element in the energy system. It can be technology-related or technology-independent. It can refer to technological, economic or environmental characteristics.                           |
+|   technology           |      text     | It describes an element of the modelled energy system that processes an energy vector. A technology can be real (e.g. specific type of power plant) as well as abstracted as an aggregation of energy processes or a virtual process.                           |
+|   technology type      |      text     | Is used to specify the technology field. The specification can be technological, or freely user-defined, based on the requirements of the model.                           |
+|   value                |      decimal  | Indicates the numerical value of a scalar.                           |
+|   unit                 |      text     | Indicates the measuring unit of a value.                           |
+|   tags                 |      json     | Is used to further describe a scalar.                           |
+|   method               |      json     | It describes the procedure for obtaining the value, in case it does not originate from a single source.                           |
+|   source               |      text     | Human readable title of the source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
+|   comment              |      text     | Free text comment on what's been done.                           |
 
 ### Example table:
 
@@ -116,23 +116,23 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 | **Field**              |  **Datatype** | **Description**            |
 |------------------------|---------------|----------------------------|
-|   timeseries id        |     int       |                            |
-|   scenario id          |     int       |                            |
-|   region               |     json      |                            |
-|   input energy vector  |     text      |                            |
-|   output energy vector |     text      |                            |
-|   parameter name       |     text      |                            |
-|   technology           |     text      |                            |
-|   technology type      |     text      |                            |
-|   timeindex start      |     [timestamp](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          |                            |
-|   timeindex stop       |     timestamp |                            |
-|   timeindex resolution |     [intervall](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          |                            |
-|   series               |     [decimal] |                            |
-|   unit                 |     text      |                            |
-|   tags                 |     json      |                            |
-|   method               |     json      |                            |
-|   source               |     text      |                            |
-|   comment              |     text      |                            |
+|   timeseries id        |     int       | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns.                           |
+|   scenario id          |     int       | A foreign key is a field that refers to a primary key column in another table.                           |
+|   region               |     json      | It describes the area name in which a timeseries operates.                           |
+|   input energy vector  |     text      | It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.                           |
+|   output energy vector |     text      | It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.                           |
+|   parameter name       |     text      | It describes a considered property of an element in the energy system. It can be technology-related or technology-independent. It can refer to technological, economic or environmental characteristics.                           |
+|   technology           |     text      | It describes an element of the modelled energy system that processes an energy vector. A technology can be real (e.g. specific type of power plant) as well as abstracted as an aggregation of energy processes or a virtual process.                           |
+|   technology type      |     text      | Is used to specify the technology field. The specification can be technological, or freely user-defined, based on the requirements of the model.                           |
+|   timeindex start      |     [timestamp](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          | Both date and time, with time zone.                           |
+|   timeindex stop       |     timestamp | Both date and time, with time zone.                           |
+|   timeindex resolution |     [intervall](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          | The time span between individual points of information in a time series.                           |
+|   series               |     [decimal] | Series of values, from start to stop with a step size of stepvalues.                           |
+|   unit                 |     text      | Indicates the measuring unit of a value.                           |
+|   tags                 |     json      | Is used to further describe a timeseries.                           |
+|   method               |     json      | It describes the procedure for obtaining the value, in case it does not originate from a single source.                           |
+|   source               |     text      | Human readable title of the source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
+|   comment              |     text      | Free text comment on what's been done.                           |
 
 ### Example table:
 
