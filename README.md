@@ -60,8 +60,9 @@ When transferring data from your own data format to the oedatamodel, it may happ
 
 ## Description and examples
 
-The following examples are intended to provide a simple example table as well as a detailed descriptoion on each field/column. For completeness we also link to
-the datapacke examples which are already provided as file. 
+The following examples are intended to provide a simple example table as well as a detailed descriptoion on each field/column. For completeness we also link to the datapacke examples which are already provided as file. 
+
+**Since we offer two data model variants with almost identical field names, we provide a description that applies to both variants.**
 
 Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)
 
