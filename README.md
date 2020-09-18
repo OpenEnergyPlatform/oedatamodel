@@ -1,4 +1,8 @@
-# oedatamodel
+[![Build Status](https://travis-ci.org/OpenEnergyPlatform/edatamodel.svg?branch=develop)](https://travis-ci.org/OpenEnergyPlatform/oedatamodel)
+
+<a href="http://oep.iks.cs.ovgu.de/"><img align="right" width="200" height="200" src="https://avatars2.githubusercontent.com/u/37101913?s=400&u=9b593cfdb6048a05ea6e72d333169a65e7c922be&v=4" alt="OpenEnergyPlatform"></a>
+
+# Open Energy Family - Datamodel
 A common open energy data model (oedatamodel) and datapackage format for energy and scenario data.
 
 # Introduction
@@ -15,7 +19,7 @@ that can be implemented on a database (e.g. postgresql). Here tables, relations,
 data types are provided. The ERM "oedatamodel-readable.pdf" is provided additionally and is designed 
 to simplify the editing of the data by a user. It also provides tables and relations as well as column 
 names and datatypes, but the tables are in a less normalized format. We recommend this version of the 
-data model for the implementation in e.g. csv tables because the advantage of the human readable format 
+data model for the implementation in e.g. csv tables because the advantage of the more human usable format 
 is not optimal for the technical usage in a database. 
 
 In addition, the raw files (file format: .er) from which the PDF respectively the ERM is generated are
@@ -37,7 +41,116 @@ This includes:
 - The metadata string itself can be validated using the [Open Metadata Integration (omi)](https://github.com/OpenEnergyPlatform/omi) tool
  
 Oemetadata provides a [detailed description](https://github.com/OpenEnergyPlatform/oemetadata/blob/develop/metadata/latest/metadata_key_description.md) with examples for each key in the metadata string.
- 
+
+# Oedatamodel - Usage
+
+## OEDataModel variations
+- OEDataModel-concrete
+    - Main usage as CSV files
+    - Tool that maps the concrete model to the normalization model will be provided. Please be aware about new features.
+
+- OEDataModel-normalization
+    - Main usage database (realtional database like postgreSQL)
+    - Optimized to store data in a relational data model
+    - Normalization for practical data relationships and reduced/no redundant fields to avoid redundant data
+
+## Fields that are not present or empty in your data
+
+When transferring data from your own data format to the oedatamodel, it may happen that fields cannot be filled properly. In this case we recommend not to leave the field empty and to insert the value "unkown" into the field.
+
+## Description and examples
+
+The following examples are intended to provide a simple example table as well as a detailed descriptoion on each field/column. For completeness we also link to
+the datapacke examples which are already provided as file. 
+
+Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)
+
+### Scenario description
+
+| **Field**         |  **Datatype** | **Description**            |
+|-------------------|---------------|----------------------------|
+|   scenario id     |     int       | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns.                           |
+|   scenario        |     text      | Name of the scenario.                           |
+|   region          |     json      | It describes the geographical scope of the dataset.                           |
+|   year            |     int       | It describes the time frame of the dataset.                           |
+|   source          |     text      | Human readable title of the source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
+|   comment         |     text      | Free text comment on what's been done.                           |
+
+### Example table:
+
+| **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
+|----------------------|--------------|------------|-----------|------------|--------------|
+| 1                    | 2035         | World      | 2020      | path       |Main scenario |
+| ...                  | ...          | ...        | ...       | ...        | ...          |
+
+
+
+### Scalar description
+
+| **Field**              |  **Datatype** | **Description**            |
+|------------------------|---------------|----------------------------|
+|   scalar id            |      int      | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns.                           |
+|   scenario id          |      int      | A foreign key is a field that refers to a primary key column in another table.                           |
+|   region               |      json     | It describes the area name in which a scalar operates.                           |
+|   input energy vector  |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.                           |
+|   output energy vector |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.                           |
+|   parameter name       |      text     | It describes a considered property of an element in the energy system. It can be technology-related or technology-independent. It can refer to technological, economic or environmental characteristics.                           |
+|   technology           |      text     | It describes an element of the modelled energy system that processes an energy vector. A technology can be real (e.g. specific type of power plant) as well as abstracted as an aggregation of energy processes or a virtual process.                           |
+|   technology type      |      text     | Is used to specify the technology field. The specification can be technological, or freely user-defined, based on the requirements of the model.                           |
+|   value                |      decimal  | Indicates the numerical value of a scalar.                           |
+|   unit                 |      text     | Indicates the measuring unit of a value.                           |
+|   tags                 |      json     | Is used to further describe a scalar.                           |
+|   method               |      json     | It describes the procedure for obtaining the value, in case it does not originate from a single source.                           |
+|   source               |      text     | Human readable title of the source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
+|   comment              |      text     | Free text comment on what's been done.                           |
+
+### Example table:
+
+| **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
+|-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
+| TODO   | TODO | TODO      | TODO | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+| ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+
+
+### Timeseries description
+
+| **Field**              |  **Datatype** | **Description**            |
+|------------------------|---------------|----------------------------|
+|   timeseries id        |     int       | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns.                           |
+|   scenario id          |     int       | A foreign key is a field that refers to a primary key column in another table.                           |
+|   region               |     json      | It describes the area name in which a timeseries operates.                           |
+|   input energy vector  |     text      | It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.                           |
+|   output energy vector |     text      | It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.                           |
+|   parameter name       |     text      | It describes a considered property of an element in the energy system. It can be technology-related or technology-independent. It can refer to technological, economic or environmental characteristics.                           |
+|   technology           |     text      | It describes an element of the modelled energy system that processes an energy vector. A technology can be real (e.g. specific type of power plant) as well as abstracted as an aggregation of energy processes or a virtual process.                           |
+|   technology type      |     text      | Is used to specify the technology field. The specification can be technological, or freely user-defined, based on the requirements of the model.                           |
+|   timeindex start      |     [timestamp](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          | Both date and time, with time zone.                           |
+|   timeindex stop       |     timestamp | Both date and time, with time zone.                           |
+|   timeindex resolution |     [intervall](https://www.postgresql.org/docs/9.5/datatype-datetime.html)          | The time span between individual points of information in a time series.                           |
+|   series               |     [decimal] | Series of values, from start to stop with a step size of stepvalues.                           |
+|   unit                 |     text      | Indicates the measuring unit of a value.                           |
+|   tags                 |     json      | Is used to further describe a timeseries.                           |
+|   method               |     json      | It describes the procedure for obtaining the value, in case it does not originate from a single source.                           |
+|   source               |     text      | Human readable title of the source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
+|   comment              |     text      | Free text comment on what's been done.                           |
+
+### Example table:
+
+| **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
+|-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
+| TODO   | TODO | TODO      | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+| ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+
+
+- Example  Datapackage
+
+    - Example JSON: [OEDataModel-concrete-datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage.json)
+
+    - Example CSV: 
+        - [concrete-datapackage_scalar](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scalar.csv)
+        - [OEDataModel-concrete-datapackage_scenario](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scenario.csv)
+        - [OEDataModel-concrete-datapackage_timeseries](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_timeseries.csv)
+
 # Edit the Entity Relationship Modell
 
 For the generation of an ERM we use this [erm tool](https://github.com/BurntSushi/erd). The [er or erd](https://github.com/BurntSushi/erd#the-er-file-format) file format offers a simple syntax and 
