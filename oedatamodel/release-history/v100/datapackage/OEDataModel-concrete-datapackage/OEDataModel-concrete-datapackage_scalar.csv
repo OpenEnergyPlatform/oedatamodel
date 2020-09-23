@@ -1,1 +1,1 @@
-scalar_id;scenario_id;region;input_energy_vector;output_energy_vector;parameter_name;technology;technology_type;unit;tags;method;source;comment;value 
+scalar_id;scenario_id;region;input_energy_vector;output_energy_vector;parameter_name;technology;technology_type;value;unit;tags;method;source;comment
