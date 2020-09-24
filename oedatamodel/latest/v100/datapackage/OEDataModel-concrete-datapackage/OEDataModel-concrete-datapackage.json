@@ -55,8 +55,8 @@
     {"title": "", "email": "", "date": "", "object": "", "comment": ""} ],
 "resources": [
     {"profile": "tabular-data-resource",
-    "name": "oed-readable_scenario",
-    "path": "oedatamodel-readable_scenario.csv",
+    "name": "model_draft.oed_concrete_scenario",
+    "path": "oedatamodel-concrete_scenario.csv",
     "format": "csv",
     "encoding" : "UTF-8",
     "schema": {
@@ -78,8 +78,8 @@
         "decimalSeparator": "."} },
 
     {"profile": "tabular-data-resource",
-    "name": "oed-readable_scalar",
-    "path": "oedatamodel-readable_scalar.csv",
+    "name": "model_draft.oed_concrete_scalar",
+    "path": "oedatamodel-concrete_scalar.csv",
     "format": "csv",
     "encoding" : "UTF-8",
     "schema": {
@@ -102,14 +102,14 @@
         "foreignKeys": [{
                 "fields": ["scenario_id"],
                 "reference": {
-                    "resource": "model_draft.oed_scenario",
+                    "resource": "model_draft.oed_concrete_scenario",
                     "fields": ["scenario_id"] } } ] },
     "dialect":
         {"delimiter": ";",
         "decimalSeparator": "."} },
         {"profile": "tabular-data-resource",
-            "name": "oed-readable_timeseries",
-            "path": "oedatamodel-readable_timeseries.csv",
+            "name": "model_draft.oed_concrete_timeseries",
+            "path": "oedatamodel-concrete_timeseries.csv",
             "format": "csv",
             "encoding" : "UTF-8",
             "schema": {
@@ -135,7 +135,7 @@
                 "foreignKeys": [{
                         "fields": ["scenario_id"],
                         "reference": {
-                            "resource": "model_draft.oed_scenario",
+                            "resource": "model_draft.oed_concrete_scenario",
                             "fields": ["scenario_id"] } } ] },
             "dialect":
                 {"delimiter": ";",
