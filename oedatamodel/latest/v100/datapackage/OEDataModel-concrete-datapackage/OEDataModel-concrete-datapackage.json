@@ -56,7 +56,7 @@
 "resources": [
     {"profile": "tabular-data-resource",
     "name": "model_draft.oed_concrete_scenario",
-    "path": "oedatamodel-concrete_scenario.csv",
+    "path": "OEDataModel-concrete_scenario.csv",
     "format": "csv",
     "encoding" : "UTF-8",
     "schema": {
@@ -79,7 +79,7 @@
 
     {"profile": "tabular-data-resource",
     "name": "model_draft.oed_concrete_scalar",
-    "path": "oedatamodel-concrete_scalar.csv",
+    "path": "OEDataModel-concrete_scalar.csv",
     "format": "csv",
     "encoding" : "UTF-8",
     "schema": {
@@ -87,7 +87,7 @@
             {"name": "scalar_id", "description": "Unique identifier", "type": "bigint", "unit": null},
             {"name": "scenario_id", "description": "Scenario name", "type": "bigint", "unit": null},
             {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
-            {"name": "input_energy_vector", "description": "", "type": "integer", "unit": null},
+            {"name": "input_energy_vector", "description": "", "type": "text", "unit": null},
             {"name": "output_energy_vector", "description": "", "type": "text", "unit": null},
             {"name": "parameter_name", "description": "", "type": "text", "unit": null},
             {"name": "technology", "description": "", "type": "text", "unit": null},
@@ -109,15 +109,15 @@
         "decimalSeparator": "."} },
         {"profile": "tabular-data-resource",
             "name": "model_draft.oed_concrete_timeseries",
-            "path": "oedatamodel-concrete_timeseries.csv",
+            "path": "OEDataModel-concrete_timeseries.csv",
             "format": "csv",
             "encoding" : "UTF-8",
             "schema": {
                 "fields": [
-                    {"name": "scalar_id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "timeseries_id", "description": "Unique identifier", "type": "bigint", "unit": null},
                     {"name": "scenario_id", "description": "Scenario name", "type": "bigint", "unit": null},
                     {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
-                    {"name": "input_energy_vector", "description": "", "type": "integer", "unit": null},
+                    {"name": "input_energy_vector", "description": "", "type": "text", "unit": null},
                     {"name": "output_energy_vector", "description": "", "type": "text", "unit": null},
                     {"name": "parameter_name", "description": "", "type": "text", "unit": null},
                     {"name": "technology", "description": "", "type": "text", "unit": null},
@@ -131,7 +131,7 @@
                     {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
                     {"name": "source", "description": "Source", "type": "text", "unit": null},
                     {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
-                "primaryKey": ["scalar_id"],
+                "primaryKey": ["timeseries_id"],
                 "foreignKeys": [{
                         "fields": ["scenario_id"],
                         "reference": {
