@@ -1,5 +1,5 @@
 [Scenario] {bgcolor: "#c1d6c1"}
-*'id (int)'
+*'id (bigint)'
 'scenario (text)'
 'region (array(text))'
 'year (int)'
@@ -8,8 +8,8 @@
 
 
 [Scalar] {bgcolor: "#b9d3eb"}
-*'id (int)'
-+'scenario id (int)'
+*'id (bigint)'
++'scenario id (bigint)'
 'region (array(text))' 
 'input energy vector (text)'
 'output energy vector (text)'
@@ -26,8 +26,8 @@
 Scenario 1--* Scalar
 
 [Timeseries] {bgcolor: "#b9d3eb"}
-*'id (int)'
-+'scenario id (int)'
+*'id (bigint)'
++'scenario id (bigint)'
 'region (array(text))'
 'input energy vector (text)'
 'output energy vector (text)'
