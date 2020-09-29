@@ -67,6 +67,23 @@ Example:
 |--------------------|
 | [1423.55706450302; 1566.42140196079]|
 
+# Apply a Datapackage to the Database
+
+[Guide to publish data on the OEP](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Research_Data_Publishing_Guidebook.ipynb)
+
+In short:
+- Create a OEP compatible [Datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage)
+- Start a OEP-Review process
+- Start the Upload-Process 
+
+[Guide to upload data to the OEP](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb)
+
+In short:
+- Use your Datapackage files to:
+    - Create Tables from the OEDataModel-Datapackage.json file usign [oem2orm](https://pypi.org/project/oem2orm/)
+    - Apply OEMetadata to the table
+    - Upload your data to the tables from the .csv files in OEDataModel format using Pandas with the oedialect
+
 ## Description and examples
 
 The following examples are intended to provide a simple example table as well as a detailed descriptoion on each field/column. For completeness we also link to the datapacke examples which are already provided as file. 
@@ -90,7 +107,9 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 | **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
 |----------------------|--------------|------------|-----------|------------|--------------|
-| 1                    | 2035         | World      | 2020      | path       |Main scenario |
+| 1                    | ToDo         | ['BB']     | 2020      | path       |ToDo          |
+| 2                    | ToDo         | ['DE']     | ToDo      | ToDo       | ToDo         |
+| 3                    | ToDo         | ['North']  | ToDo      | ToDo       | ToDo         |
 | ...                  | ...          | ...        | ...       | ...        | ...          |
 
 
@@ -118,7 +137,9 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 | **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| TODO   | TODO | TODO      | TODO | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+| 1   | 1 | ['DE']    | solar radiation | electricity     |    variable costs |    photovoltaics |      utility |      0.00 |      €/MWh |      Assumption |      ToDo |      ToDo |      ToDo |
+| 2   | 1 | ['DE']      | lignite | co2     |    output ratio |    generator |      ToDo |      0.40 |      t/MWh |      ToDo |      ToDo |      ToDo |      ToDO |
+| 3   | 2 | ['DE']      | heavyoil | co2     |    output ratio |    generator |      ToDo |      0.29 |      t/MWh |      ToDo |      ToDo |      ToDo |      ToDo |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 
@@ -148,7 +169,9 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 
 | **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| TODO   | TODO | TODO      | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+| 1   | 1 | ['DE']      | solar radiation     |    electricity |    capacity factor |      photovoltaics |      rooftop |      2016-09-30 16:00:00+01:00 |      2016-09-30 17:00:00+01:00 |      1 |      [0.014; 0] |      ToDo |      ToDo |      NUTS 2 aggregated to NUTS 1 and weighted per area |      ToDo |      ToDo |
+| 2   | 1 | ['BB']      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      ToDo |      ToDo |      NUTS 2 aggregated to NUTS 1 and weighted per area |      ToDo |      ToDo |
+| 3   | 2 | TODO      | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 
