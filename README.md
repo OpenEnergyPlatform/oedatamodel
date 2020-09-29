@@ -58,6 +58,15 @@ Oemetadata provides a [detailed description](https://github.com/OpenEnergyPlatfo
 
 When transferring data from your own data format to the oedatamodel, it may happen that fields cannot be filled properly. In this case we recommend not to leave the field empty and to insert the value "unkown" into the field.
 
+# Delimiter and decimal sepperators
+
+If you transfer data into the oedatamodel format make sure to use the delimiter ";" in e.g. .csv files for delimiting values. Decimal numbers are separated by a "." .
+
+Example:
+| **series**         | 
+|--------------------|
+| [1423.55706450302; 1566.42140196079]|
+
 ## Description and examples
 
 The following examples are intended to provide a simple example table as well as a detailed descriptoion on each field/column. For completeness we also link to the datapacke examples which are already provided as file. 
