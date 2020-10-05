@@ -61,13 +61,13 @@
     "encoding" : "UTF-8",
     "schema": {
         "fields": [
-            {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+            {"name": "scenario_id", "description": "Unique identifier", "type": "bigint", "unit": null},
             {"name": "scenario", "description": "Scenario name", "type": "text", "unit": null},
             {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
             {"name": "year", "description": "Year", "type": "integer", "unit": null},
             {"name": "source", "description": "Source", "type": "text", "unit": null},
             {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
-        "primaryKey": ["id"],
+        "primaryKey": ["scenario_id"],
         "foreignKeys": [{
                 "fields": [null],
                 "reference": {
@@ -84,7 +84,7 @@
     "encoding" : "UTF-8",
     "schema": {
         "fields": [
-            {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+            {"name": "scalar_id", "description": "Unique identifier", "type": "bigint", "unit": null},
             {"name": "scenario_id", "description": "Scenario name", "type": "bigint", "unit": null},
             {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
             {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null},
@@ -98,12 +98,12 @@
             {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
             {"name": "source", "description": "Source", "type": "text", "unit": null},
             {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
-        "primaryKey": ["id"],
+        "primaryKey": ["scalar_id"],
         "foreignKeys": [{
                 "fields": ["scenario_id"],
                 "reference": {
                     "resource": "model_draft.oed_concrete_scenario",
-                    "fields": ["id"] } } ] },
+                    "fields": ["scenario_id"] } } ] },
     "dialect":
         {"delimiter": ";",
         "decimalSeparator": "."} },
@@ -114,7 +114,7 @@
             "encoding" : "UTF-8",
             "schema": {
                 "fields": [
-                    {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "timeseries_id", "description": "Unique identifier", "type": "bigint", "unit": null},
                     {"name": "scenario_id", "description": "Scenario name", "type": "bigint", "unit": null},
                     {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
                     {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null},
@@ -131,12 +131,12 @@
                     {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
                     {"name": "source", "description": "Source", "type": "text", "unit": null},
                     {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
-                "primaryKey": ["id"],
+                "primaryKey": ["timeseries_id"],
                 "foreignKeys": [{
                         "fields": ["scenario_id"],
                         "reference": {
                             "resource": "model_draft.oed_concrete_scenario",
-                            "fields": ["id"] } } ] },
+                            "fields": ["scenario_id"] } } ] },
             "dialect":
                 {"delimiter": ";",
                 "decimalSeparator": "."} } ],
