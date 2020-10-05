@@ -1,1 +1,1 @@
-timeseries_id;scenario_id;region;input_energy_vector;output_energy_vector;parameter_name;technology;technology_type;timeindex_start;timeindex_stop;timeindex_resolution;series;unit;tags;method;source;comment
+id;scenario_id;region;input_energy_vector;output_energy_vector;parameter_name;technology;technology_type;timeindex_start;timeindex_stop;timeindex_resolution;series;unit;tags;method;source;comment
