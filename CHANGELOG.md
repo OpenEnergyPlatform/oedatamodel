@@ -33,7 +33,7 @@ Here is a template for new release sections
 - Provide table examples 
 
 ### Changed
--
+- Change OEDataModel Primary Key column names to "id" to support OEP API requirments [PR#30]
 
 
 ## [1.0.0] Initial release
