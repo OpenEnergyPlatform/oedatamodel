@@ -7,8 +7,8 @@
     "publicationDate": "2020-08-11",
     "context":
         {"homepage": "https://openenergy-platform.org/",
-        "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest/v100/oedatamodel.pdf",
-        "sourceCode": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest/v100/oedatamodel.er",
+        "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/README.md",
+        "sourceCode": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest",
         "contact": "",
         "grantNo": "",
         "fundingAgency": "",
@@ -52,7 +52,7 @@
     ],
     "contributors": [
         {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
-        {"title": "", "email": "", "date": "", "object": "", "comment": ""} ],
+        {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"} ],
     "resources": [
         {"profile": "tabular-data-resource",
         "name": "model_draft.oed_scenario",
@@ -117,6 +117,7 @@
         "schema": {
             "fields": [
                 {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                {"name": "year", "description": "Year", "type": "integer", "unit": null},
                 {"name": "value", "description": "Value", "type": "float", "unit": "kw"} ],
             "primaryKey": ["id"],
             "foreignKeys": [{
