@@ -28,6 +28,7 @@ Data 1--1 Scalar
 
 [Scalar] {bgcolor: "#b9d3eb"}
 *+'id (bigint)'
+'year (int)'
 'value (decimal/float)'
 
 Data 1--1 Timeseries

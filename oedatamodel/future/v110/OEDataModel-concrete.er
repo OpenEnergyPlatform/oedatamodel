@@ -10,7 +10,8 @@
 [Scalar] {bgcolor: "#b9d3eb"}
 *'id (bigint)'
 +'scenario id (bigint)'
-'region (array(text))' 
+'region (array(text))'
+'year (int)' 
 'input energy vector (text)'
 'output energy vector (text)'
 'parameter name (text)'
