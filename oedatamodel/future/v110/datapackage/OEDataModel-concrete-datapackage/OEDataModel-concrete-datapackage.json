@@ -7,8 +7,8 @@
 "publicationDate": "2020-08-11",
 "context":
     {"homepage": "https://openenergy-platform.org/",
-    "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest/v100/oedatamodel-readable.pdf",
-    "sourceCode": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest/v100/oedatamodel-readable.er",
+    "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/README.md",
+    "sourceCode": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest",
     "contact": "",
     "grantNo": "",
     "fundingAgency": "",
@@ -52,10 +52,10 @@
 ],
 "contributors": [
     {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
-    {"title": "", "email": "", "date": "", "object": "", "comment": ""} ],
+    {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"} ],
 "resources": [
     {"profile": "tabular-data-resource",
-    "name": "model_draft.oed_concrete_scenario",
+    "name": "oed_concrete_scenario",
     "path": "OEDataModel-concrete_scenario.csv",
     "format": "csv",
     "encoding" : "UTF-8",
@@ -78,7 +78,7 @@
         "decimalSeparator": "."} },
 
     {"profile": "tabular-data-resource",
-    "name": "model_draft.oed_concrete_scalar",
+    "name": "oed_concrete_scalar",
     "path": "OEDataModel-concrete_scalar.csv",
     "format": "csv",
     "encoding" : "UTF-8",
@@ -87,6 +87,7 @@
             {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
             {"name": "scenario_id", "description": "Scenario name", "type": "bigint", "unit": null},
             {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
+            {"name": "year", "description": "Year", "type": "integer", "unit": null},
             {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null},
             {"name": "output_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.", "type": "text", "unit": null},
             {"name": "parameter_name", "description": "It describes a considered property of an element in the energy system.", "type": "text", "unit": null},
@@ -102,13 +103,13 @@
         "foreignKeys": [{
                 "fields": ["scenario_id"],
                 "reference": {
-                    "resource": "model_draft.oed_concrete_scenario",
+                    "resource": "oed_concrete_scenari",
                     "fields": ["id"] } } ] },
     "dialect":
         {"delimiter": ";",
         "decimalSeparator": "."} },
         {"profile": "tabular-data-resource",
-            "name": "model_draft.oed_concrete_timeseries",
+            "name": "oed_concrete_timeseries",
             "path": "OEDataModel-concrete_timeseries.csv",
             "format": "csv",
             "encoding" : "UTF-8",
@@ -135,7 +136,7 @@
                 "foreignKeys": [{
                         "fields": ["scenario_id"],
                         "reference": {
-                            "resource": "model_draft.oed_concrete_scenario",
+                            "resource": "oed_concrete_scenari",
                             "fields": ["id"] } } ] },
             "dialect":
                 {"delimiter": ";",
