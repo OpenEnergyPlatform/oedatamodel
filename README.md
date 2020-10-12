@@ -13,10 +13,10 @@ Additional we include a datapackage for every release.
 Existing approaches and ideas such as the [IAMC data format](https://github.com/IAMconsortium/pyam#data-model) or [Do-a-thon: Towards a common data standard 
 for integrated assessment and energy systems modelling](https://forum.openmod-initiative.org/t/do-a-thon-towards-a-common-data-standard-for-integrated-assessment-and-energy-systems-modelling/1774/5) were adopted in the development process.
 
-The latest version can be found in the folder oedatamodel/latest. 
-The version available there offers the user 2 ERM's. The ERM "oedatamodel.pdf" shows the data model 
+The latest version can be found in the folder [oedatamodel/latest](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest). 
+The version available there offers the user 2 ERM's. The ERM "OEDataModel-normalization.pdf" shows the data model 
 that can be implemented on a database (e.g. postgresql). Here tables, relations, column names and 
-data types are provided. The ERM "oedatamodel-readable.pdf" is provided additionally and is designed 
+data types are provided. The ERM "OEDataModel-concrete.pdf" is provided additionally and is designed 
 to simplify the editing of the data by a user. It also provides tables and relations as well as column 
 names and datatypes, but the tables are in a less normalized format. We recommend this version of the 
 data model for the implementation in e.g. csv tables because the advantage of the more human usable format 
