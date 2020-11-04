@@ -31,7 +31,11 @@ Here is a template for new release sections
 ### Added
 
 ### Changed
-
+- include feedback from open_MODEX project meeting in [PR#37], this includes:
+    - changing scenarion.year type to postgis tstzrange  and .region type to json
+    - timeseries fix typos in description fields
+    - scalar.region updating description field
+    - updated ERM´s 
 
 ## [1.1.0] 
 
