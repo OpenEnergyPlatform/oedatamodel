@@ -64,7 +64,7 @@
                 {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
                 {"name": "scenario", "description": "Scenario name", "type": "text", "unit": null},
                 {"name": "region", "description": "Country or region, you can add a upper region with sub regions using json syntax", "type": "json", "unit": null},
-                {"name": "year", "description": "Year, Range of timestamp with time zone", "type": "tstzrange ", "unit": null},
+                {"name": "year", "description": "Year, Range of timestamp with time zone", "type": "tstzrange", "unit": null},
                 {"name": "source", "description": "Source", "type": "text", "unit": null},
                 {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
             "primaryKey": ["id"],
