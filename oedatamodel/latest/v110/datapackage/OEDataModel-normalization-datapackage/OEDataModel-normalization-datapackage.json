@@ -52,7 +52,8 @@
     ],
     "contributors": [
         {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
-        {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"} ],
+        {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"},
+        {"title": "jh-RLI", "email": null, "date": "2020-11-08", "object": "metadata", "comment": "Update Ressources"} ],
     "resources": [
         {"profile": "tabular-data-resource",
         "name": "model_draft.oed_scenario",
