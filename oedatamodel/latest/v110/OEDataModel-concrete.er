@@ -1,7 +1,7 @@
 [Scenario] {bgcolor: "#c1d6c1"}
 *'id (bigint)'
 'scenario (text)'
-'region (array(text))'
+'region (json)'
 'year (int)'
 'source (text)'
 'comment (text)'
