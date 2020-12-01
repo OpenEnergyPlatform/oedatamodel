@@ -52,7 +52,8 @@
     ],
     "contributors": [
         {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
-        {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"} ],
+        {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"},
+        {"title": "jh-RLI", "email": null, "date": "2020-11-08", "object": "metadata", "comment": "Update Ressources"} ],
     "resources": [
         {"profile": "tabular-data-resource",
         "name": "model_draft.oed_scenario",
@@ -63,7 +64,7 @@
             "fields": [
                 {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
                 {"name": "scenario", "description": "Scenario name", "type": "text", "unit": null},
-                {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
+                {"name": "region", "description": "Country or region, you can add a upper region with sub regions using json syntax", "type": "json", "unit": null},
                 {"name": "year", "description": "Year", "type": "integer", "unit": null},
                 {"name": "source", "description": "Source", "type": "text", "unit": null},
                 {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
@@ -86,7 +87,7 @@
             "fields": [
                 {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
                 {"name": "scenario_id", "description": "Scenario name", "type": "bigint", "unit": null},
-                {"name": "region", "description": "Country or region", "type": "text array", "unit": null},
+                {"name": "region", "description": "Country or region, add a flow from region a -> b: ['a', 'b']", "type": "text array", "unit": null},
                 {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null},
                 {"name": "output_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.", "type": "text", "unit": null},
                 {"name": "parameter_name", "description": "It describes a considered property of an element in the energy system.", "type": "text", "unit": null},
