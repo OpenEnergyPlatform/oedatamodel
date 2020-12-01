@@ -33,7 +33,7 @@ Here is a template for new release sections
     - changing scenarion.region type to json
     - timeseries fix typos in description fields
     - scalar.region updating description field
-    - updated ERM´s
+    - updated ERM´s 
 
 ### Added
 
