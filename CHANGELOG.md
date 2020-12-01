@@ -28,6 +28,13 @@ Here is a template for new release sections
 ```
 ## Current
 
+### [1.1.1]
+- include feedback from open_MODEX project meeting in [PR#], this includes:
+    - changing scenarion.region type to json
+    - timeseries fix typos in description fields
+    - scalar.region updating description field
+    - updated ERM´s 
+
 ### Added
 
 ### Changed
