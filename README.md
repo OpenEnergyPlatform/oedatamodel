@@ -60,12 +60,14 @@ When transferring data from your own data format to the oedatamodel, it may happ
 
 ## Delimiter and decimal sepperators
 
-If you transfer data into the oedatamodel format make sure to use the delimiter ";" in e.g. .csv files for delimiting values. Decimal numbers are separated by a "." .
+If you transfer data into the oedatamodel format make sure to use the delimiter "," in e.g. .csv files for delimiting a series of values. Decimal numbers are separated by a "." .
 
 Example:
+A series ist stored inside an array datatype, each value is sapperated by ",".
 | **series**         | 
 |--------------------|
-| [1423.55706450302; 1566.42140196079]|
+| [1423.55706450302, 1566.42140196079]|
+
 
 ## Apply a Datapackage to the Database
 
