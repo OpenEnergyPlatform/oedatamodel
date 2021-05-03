@@ -111,7 +111,7 @@ Origin data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/
 |----------------------|--------------|------------|-----------|------------|--------------|
 | 1                    | ToDo         | ['BB']     | 2020      | path       |ToDo          |
 | 2                    | ToDo         | ['DE']     | ToDo      | ToDo       | ToDo         |
-| 3                    | ToDo         | ['North']  | ToDo      | ToDo       | ToDo         |
+| 3                    | ToDo         | ['North']  | ToDo.      | ToDo       | ToDo         |
 | ...                  | ...          | ...        | ...       | ...        | ...          |
 
 
