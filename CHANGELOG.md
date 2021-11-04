@@ -28,12 +28,28 @@ Here is a template for new release sections
 ```
 ## Current
 
+### [1.1.1]
+- include feedback from open_MODEX project meeting in [PR#], this includes:
+    - changing scenarion.region type to json
+    - timeseries fix typos in description fields
+    - scalar.region updating description field
+    - updated ERM´s
+
+### Added
+
+### Changed
+
+
+## [1.1.0] 
+
 ### Added
 - Improve description for each posssible table (column)
 - Provide table examples 
 
 ### Changed
--
+- Change OEDataModel Primary Key column names to "id" to support OEP API requirments [PR#30]
+- Added new 'year' column to scalar table model [Issue#29]
+- Updated ERM with datamodel changes 
 
 
 ## [1.0.0] Initial release
