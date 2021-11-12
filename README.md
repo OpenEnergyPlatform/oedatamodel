@@ -28,10 +28,12 @@ During development, it became apparent that the usability of datamodels that are
 The technical documentation is provided in the form of [entity relationship models]() (ERM). There the structure of the data model is shown on the basis of tables with column names, data types and key attributes, as well as the relationships between tables. This information is important to understand the structure and to install the data model on a database such as [ProstgreSQL](). 
 
 ## Datapackage
-To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage](). A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files.
+To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage]() format. A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files.
 
-## Examples and FAQ
-To enhance the usability examples were created. On the one hand, there are example values for each table of the data model, which can be found in section Examples, and on the other hand, [template csv]() files have been created. 
+## Examples
+To enhance the usability of the oedatamodel examples were created. On the one hand, there are descriptions and examples for each table of the oedatamodel concrete variation, which can be found [here](), and on the other hand, [template csv]() files have been created to ease the process of data creation. 
+
+In addition, an example of a [correctly created datapackage]() is provided, since a very precise procedure is important when creating it.
 
 ## Release content
 The latest version can be found in the folder [oedatamodel/latest](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest). Each release contains:
@@ -41,11 +43,11 @@ The latest version can be found in the folder [oedatamodel/latest](https://githu
 - Datapackage with template content for "OEDataModel-concrete-datapackage" and "OEDataModel-normalization-datapackage"
 
 # Usage
-Lern about dataconventions that help to create correct datasets and Examples
+Lern about file and data conventions as well as oemedatamodel fild descriptions and table examples that help to create correct datasets.
 
 ## File conventions
-To use the oedatamodel we recommend the use of csv files to convert data from an individual data structure into the oedatamodel concrete format.  
-To avoid further conflicts a ";" must be used as column delimiter. For this purpose template files are stored [here]().
+To use the oedatamodel we recommend the use of [csv]() files to convert data from an individual data structure into the oedatamodel concrete format.  
+To avoid further conflicts a ";" must be used as column delimiter in the csv file. The correct application is demonstrated by [templates]().
 
 ##  Data conventions
 ### Fields that are not present or empty
@@ -63,9 +65,9 @@ A series ist stored inside an array datatype, each value is delimited by ",".
 | [1423.55706450302, 1566.42140196079]|
 
 
-## Example tables
+## Table descrption and examples
 
-The following is intended to provide a simple example table as well as a detailed description on all fields and columns for ech tabel of the oedatamodel Concrete variation. 
+The following is intended to provide a simple example table as well as a detailed description on all fields and columns for ech tabel of the oedatamodel **concrete** variation. 
 
 **Data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)**
 
@@ -84,9 +86,9 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
 |----------------------|--------------|------------|-----------|------------|--------------|
-| 1                    | ToDo         | ['BB']     | 2020      | path       |ToDo          |
-| 2                    | ToDo         | ['DE']     | ToDo      | ToDo       | ToDo         |
-| 3                    | ToDo         | ['North']  | ToDo.      | ToDo       | ToDo         |
+| 1                    | base         | {'DE':['BE', 'BB']}     | 2016      |            |The scenario depicts the electricity sector in Germany. It is divided into 18 nodes, 16 nodes as federal states and 2 offshore nodes. Germany's neighbouring countries are not considered.           |
+| 2                    | variation1   | {'DE':['BB']}     | 2020      |            | Some scenario descripton.         |
+| 3                    | variation2   | {'DE':['BB']}  | 2030      |            | Some scenario descripton         |
 | ...                  | ...          | ...        | ...       | ...        | ...          |
 
 
@@ -107,16 +109,16 @@ The following is intended to provide a simple example table as well as a detaile
 |   unit                 |      text     | Indicates the measuring unit of a value.                           |
 |   tags                 |      json     | Is used to further describe a scalar.                           |
 |   method               |      json     | It describes the procedure for obtaining the value, in case it does not originate from a single source.                           |
-|   source               |      text     | Human readable title of the source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
+|   source               |      text     | Model/Framework name and source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
 |   comment              |      text     | Free text comment on what's been done.                           |
 
 ### Example table
 
 | **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| 1   | 1 | ['DE']    | solar radiation | electricity     |    variable costs |    photovoltaics |      utility |      0.00 |      €/MWh |      Assumption |      ToDo |      ToDo |      ToDo |
-| 2   | 1 | ['DE']      | lignite | co2     |    output ratio |    generator |      ToDo |      0.40 |      t/MWh |      ToDo |      ToDo |      ToDo |      ToDO |
-| 3   | 2 | ['DE']      | heavyoil | co2     |    output ratio |    generator |      ToDo |      0.29 |      t/MWh |      ToDo |      ToDo |      ToDo |      ToDo |
+| 1   | 1 | ['BB']    | solar radiation | electricity     |    variable costs |    photovoltaics |      utility |      0.00 |      €/MWh |       |       |       |       |
+| 2   | 1 | ['BE']      | lignite  | co2     |   output ratio |   generator |     unknown |      0.40 |      t/MWh |       |       |       |       |
+| 3   | 2 | ['BB']      | electricity | electricity     |   installed capacity |   storage |     battery |      0.29 |      t/MWh |       |   {"value":"Capacity based on the date of commissioning and the remaining life of the technology"}    |    Stenzel2020   |       |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 
@@ -146,10 +148,14 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| 1   | 1 | ['DE']      | solar radiation     |    electricity |    capacity factor |      photovoltaics |      rooftop |      2016-09-30 16:00:00+01:00 |      2016-09-30 17:00:00+01:00 |      1 |      [0.014; 0] |      ToDo |      ToDo |      NUTS 2 aggregated to NUTS 1 and weighted per area |      ToDo |      ToDo |
-| 2   | 1 | ['BB']      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      ToDo |      ToDo |      NUTS 2 aggregated to NUTS 1 and weighted per area |      ToDo |      ToDo |
-| 3   | 2 | TODO      | TODO     |    TODO |    TODO |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+| 1   | 1 | ['BE']      | electricity     |    electricity |    COP |      heat pump |     air-air |      2016-09-30 16:00:00+01:00 |      2016-09-30 17:00:00+01:00 |      1 |      [0.014; 0] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area |       |       |
+| 2   | 1 | ['BB']      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area |       |       |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
+
+## Datapackge description, conventions and examples
+
+### Conventions to folder structure
+
 
 
 - Example  Datapackage
@@ -163,18 +169,18 @@ The following is intended to provide a simple example table as well as a detaile
 
 # Next Steps: Upload data(-package) to the OEP
 
-[Guide to publish data on the OEP](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Research_Data_Publishing_Guidebook.ipynb)
+### Conversion of an individual data structure into oedatamodel 
+To upload a dataset, several steps have to be carried out. there are different approaches. First, it is always necessary to create a datapackage from your own data. There are two possibilities to transfer the data from an individual data structure into the oedatamodel. 
+1. data is entered manually into the oedatamodel concrete format and a datapackage is created from it. 
+2. a datapackage is created from the individual data structure without any changes to the structure itself. Then a mapping that maps the fields of the individual data structure to the fields of the oedatamodel is created using the [oedatamodel_api]().
 
-1. Create a OEP compatible [Datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage)
-2. Start a OEP-Review process
-3. Start the Upload-Process 
+### Create new oedatamodel tables
+Before data can be uploaded to the database, the tables for it must be created on the OEP. For this purpose, the oedatamodel normalization variation is used and the tables are given project-specific names. For example, the tables are then called "project_name_oed_scenario" etc. . This allows the oedatamodel to be used by multiple projects. For the creation of the tables on the OEP a [Guide](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb) is offered.
 
-[Guide to upload data to the OEP](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb)
+### Upload a datapackage
+Subsequently, the oedatamodel_api can be used for both use cases of the data transfer. Here, datapackges can be imported via a website as a zipe Datapackage folder and then uploaded to the OEP optinally with or without mapping to the tables. the datapackge is validated before the upload. For more information about the use of the oedatamodel_api and the upload see here.
 
-- Use your Datapackage files to:
-    - Create Tables from the OEDataModel-Datapackage.json file usign [oem2orm](https://pypi.org/project/oem2orm/)
-    - Apply OEMetadata to the table
-    - Upload your data to the tables from the .csv files in OEDataModel format using Pandas with the oedialect
+# FAQ
 
 # How to edit the Entity Relationship Modell
 
