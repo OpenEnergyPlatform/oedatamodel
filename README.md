@@ -30,7 +30,7 @@ The technical documentation is provided in the form of [entity relationship mode
 ## Datapackage
 To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage]() format. A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files.
 
-## Examples
+## Overview of all examples
 To enhance the usability of the oedatamodel examples were created. On the one hand, there are descriptions and examples for each table of the oedatamodel concrete variation, which can be found [here](), and on the other hand, [template csv]() files have been created to ease the process of data creation. 
 
 In addition, an example of a [correctly created datapackage]() is provided, since a very precise procedure is important when creating it.
@@ -39,11 +39,11 @@ In addition, an example of a [correctly created datapackage]() is provided, sinc
 The latest version can be found in the folder [oedatamodel/latest](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest). Each release contains:
 
 - ERM "OEDataModel-normalization.pdf" and "OEDataModel-concrete.pdf" 
-- .er files that are used to generate the ERM .pdf files
-- Datapackage with template content for "OEDataModel-concrete-datapackage" and "OEDataModel-normalization-datapackage"
+- .er files that are used to generate the ERM as .pdf files
+- Datapackages with template content for each "OEDataModel-concrete-datapackage" and "OEDataModel-normalization-datapackage"
 
 # Usage
-Lern about file and data conventions as well as oemedatamodel fild descriptions and table examples that help to create correct datasets.
+Lern about file and data conventions as well as oemedatamodel field descriptions and table examples that help to create correct datasets.
 
 ## File conventions
 To use the oedatamodel we recommend the use of [csv]() files to convert data from an individual data structure into the oedatamodel concrete format.  
@@ -158,7 +158,7 @@ The following is intended to provide a simple example table as well as a detaile
 
 
 
-- Example  Datapackage
+### Example Datapackages
 
     - Example JSON: [OEDataModel-concrete-datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage.json)
 
