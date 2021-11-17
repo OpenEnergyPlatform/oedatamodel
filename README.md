@@ -47,12 +47,13 @@ Lern about file and data conventions as well as oemedatamodel field descriptions
 
 ## File conventions
 To use the oedatamodel we recommend the use of [csv]() files to convert data from an individual data structure into the oedatamodel concrete format.  
-To avoid further conflicts a ";" must be used as column delimiter in the csv file. The correct application is demonstrated by [templates]().
+To avoid further conflicts a ";" must be used as column/field delimiter in the csv file. The correct application is demonstrated by [templates]().
 
 ##  Data conventions
 ### Fields that are not present or empty
 
-- When transferring data from your own data format to the oedatamodel, it may happen that fields cannot be filled properly. In this case we recommend not to leave the field empty but to insert the value "unkown" into the field.
+- When transferring data from your own data format to the oedatamodel, it may happen that fields cannot be filled properly. In this case we recommend not to leave the field empty but to insert the value "unkown" into the field. 
+- If there is no value for a field we recommend leaving the field empty as this will lead to the correct "null" value when uploading the dataset. For example: if there is no comment for a specific row in the record you can leaf the comment field empty. 
 
 ### Delimiter and decimal sepperators for data series 
 
@@ -86,9 +87,9 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
 |----------------------|--------------|------------|-----------|------------|--------------|
-| 1                    | base         | {'DE':['BE', 'BB']}     | 2016      |            |The scenario depicts the electricity sector in Germany. It is divided into 18 nodes, 16 nodes as federal states and 2 offshore nodes. Germany's neighbouring countries are not considered.           |
-| 2                    | variation1   | {'DE':['BB']}     | 2020      |            | Some scenario descripton.         |
-| 3                    | variation2   | {'DE':['BB']}  | 2030      |            | Some scenario descripton         |
+| 1                    | base         | {'DE':['BE', 'BB']}     | 2016      | modelname and/or attribution |The scenario depicts the electricity sector in Germany. It is divided into 18 nodes, 16 nodes as federal states and 2 offshore nodes. Germany's neighbouring countries are not considered.           |
+| 2                    | variation1   | {'DE':['BB']}     | 2020      | modelname and/or attribution | Some scenario descripton.         |
+| 3                    | variation2   | {'DE':['BB']}  | 2030      | modelname and/or attribution | Some scenario descripton         |
 | ...                  | ...          | ...        | ...       | ...        | ...          |
 
 
@@ -97,28 +98,28 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **Field**              |  **Datatype** | **Description**            |
 |------------------------|---------------|----------------------------|
-|   scalar id            |      int      | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns.                           |
-|   scenario id          |      int      | A foreign key is a field that refers to a primary key column in another table.                           |
-|   region               |      json     | It describes the area name in which a scalar operates.                           |
-|   input energy vector  |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.                           |
-|   output energy vector |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.                           |
-|   parameter name       |      text     | It describes a considered property of an element in the energy system. It can be technology-related or technology-independent. It can refer to technological, economic or environmental characteristics.                           |
-|   technology           |      text     | It describes an element of the modelled energy system that processes an energy vector. A technology can be real (e.g. specific type of power plant) as well as abstracted as an aggregation of energy processes or a virtual process.                           |
+|   scalar id            |      int      | A primary key is a field or set of fields that uniquely identifies each row in the table. It's recorded as a list of strings, since it is possible to define the primary key as made up of several columns. |
+|   scenario id          |      int      | A foreign key is a field that refers to a primary key column in another table. |
+|   region               |      json     | It describes the area name in which a scalar operates. |
+|   input energy vector  |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.|
+|   output energy vector |      text     | It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology. |
+|   parameter name       |      text     | It describes a considered property of an element in the energy system. It can be technology-related or technology-independent. It can refer to technological, economic or environmental characteristics. |
+|   technology           |      text     | It describes an element of the modelled energy system that processes an energy vector. A technology can be real (e.g. specific type of power plant) as well as abstracted as an aggregation of energy processes or a virtual process. |
 |   technology type      |      text     | Is used to specify the technology field. The specification can be technological, or freely user-defined, based on the requirements of the model.                           |
-|   value                |      decimal  | Indicates the numerical value of a scalar.                           |
-|   unit                 |      text     | Indicates the measuring unit of a value.                           |
-|   tags                 |      json     | Is used to further describe a scalar.                           |
-|   method               |      json     | It describes the procedure for obtaining the value, in case it does not originate from a single source.                           |
-|   source               |      text     | Model/Framework name and source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file.                           |
-|   comment              |      text     | Free text comment on what's been done.                           |
+|   value                |      decimal  | Indicates the numerical value of a scalar. |
+|   unit                 |      text     | Indicates the measuring unit of a value. |
+|   tags                 |      json     | Is used to further describe a scalar. |
+|   method               |      json     | It describes the procedure for obtaining the value, in case it does not originate from a single source. |
+|   source               |      text     | Model/Framework name and source, e.g. document title or organisation name. The source must relate to a source provided in the oemetadata (datapackage) file. |
+|   comment              |      text     | Free text comment on what's been done. |
 
 ### Example table
 
 | **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| 1   | 1 | ['BB']    | solar radiation | electricity     |    variable costs |    photovoltaics |      utility |      0.00 |      €/MWh |       |       |       |       |
-| 2   | 1 | ['BE']      | lignite  | co2     |   output ratio |   generator |     unknown |      0.40 |      t/MWh |       |       |       |       |
-| 3   | 2 | ['BB']      | electricity | electricity     |   installed capacity |   storage |     battery |      0.29 |      t/MWh |       |   {"value":"Capacity based on the date of commissioning and the remaining life of the technology"}    |    Stenzel2020   |       |
+| 1   | 1 | ['BB']    | solar radiation | electricity | variable costs | photovoltaics | utility | 0.00 | €/MWh |       |       | modelname and/or attribution |       |
+| 2   | 1 | ['BE']      | lignite  | co2 |   output ratio |   generator | unknown | 0.40 |  t/MWh |       |       | modelname and/or attribution |       |
+| 3   | 2 | ['BB']      | electricity | electricity     |   installed capacity |   storage |     battery |      0.29 |      t/MWh |       |   {"value":"Capacity based on the date of commissioning and the remaining life of the technology"}  | modelname and/or attribution |       |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 
@@ -148,8 +149,8 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| 1   | 1 | ['BE']      | electricity     |    electricity |    COP |      heat pump |     air-air |      2016-09-30 16:00:00+01:00 |      2016-09-30 17:00:00+01:00 |      1 |      [0.014; 0] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area |       |       |
-| 2   | 1 | ['BB']      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area |       |       |
+| 1   | 1 | ['BE']      | electricity     |    electricity |    COP |      heat pump |     air-air |      2016-09-30 16:00:00+01:00 |      2016-09-30 17:00:00+01:00 |      1 |      [0.014; 0] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area | modelname and/or attribution |       |
+| 2   | 1 | ['BB']      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area | modelname and/or attribution |       |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 ## Datapackge description, conventions and examples
@@ -160,7 +161,8 @@ The following is intended to provide a simple example table as well as a detaile
 
 ### Example Datapackages
 
-    - Example JSON: [OEDataModel-concrete-datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage.json)
+    - Example JSON: 
+        - [OEDataModel-concrete-datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage.json)
 
     - Example CSV: 
         - [concrete-datapackage_scalar](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scalar.csv)
