@@ -21,19 +21,19 @@ for integrated assessment and energy systems modelling](https://forum.openmod-in
 
 ## Datamodel variations 
 During development, it became apparent that the usability of datamodels that are available in a form that is primarily suitable for a database is not always comprehensible to users. For this reason, there are two variations of the oedata model. 
-- [Variation 1 Normalization](): Focuses on the avoidance of redundancies such as the same columns in different tables. The tables are normalized and are particularly suitable for installation on a database. The normalization variation consists of four tables: scenario, data, scalar and timeseries. The data table aggregates all fields that are equally relevant for scalar and timeseries data. The timeseries and sclar tables contain the raw data. 
-- [Variation 2 Concrete](): Efforts are made to simplify handling when a user fills in data to the oedatamodel tables using file formats like .csv. The Concrete variation provides tables for scenario, scalar and timeseries data. This allows data sets to be filled in one table each for sclar or timeseries data.
+- [Variation 1 Normalization](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/OEDataModel-normalization.pdf): Focuses on the avoidance of redundancies such as the same columns in different tables. The tables are normalized and are particularly suitable for installation on a database. The normalization variation consists of four tables: scenario, data, scalar and timeseries. The data table aggregates all fields that are equally relevant for scalar and timeseries data. The timeseries and sclar tables contain the raw data. 
+- [Variation 2 Concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/OEDataModel-concrete.pdf): Efforts are made to simplify handling when a user fills in data to the oedatamodel tables using file formats like .csv. The Concrete variation provides tables for scenario, scalar and timeseries data. This allows data sets to be filled in one table each for sclar or timeseries data.
 
 ## Technical documentation
-The technical documentation is provided in the form of [entity relationship models]() (ERM). There the structure of the data model is shown on the basis of tables with column names, data types and key attributes, as well as the relationships between tables. This information is important to understand the structure and to install the data model on a database such as [ProstgreSQL](). 
+The technical documentation is provided in the form of entity relationship models (ERM). The structure of the data model is shown on the basis of tables with column names, data types and key attributes, as well as the relationships between tables. This information is important to understand the structure and to install the data model on a database such as [ProstgreSQL](). 
 
 ## Datapackage
-To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage]() format. A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files.
+To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage]() format. A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files. 
 
 ## Overview of all examples
-To enhance the usability of the oedatamodel examples were created. On the one hand, there are descriptions and examples for each table of the oedatamodel concrete variation, which can be found [here](), and on the other hand, [template csv]() files have been created to ease the process of data creation. 
+To enhance the usability of the oedatamodel examples were created. On the one hand, there are descriptions and examples for each table of the oedatamodel concrete variation, which can be found [here](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop#description-and-examples), and on the other hand, [template csv files](https://github.com/OpenEnergyPlatform/oedatamodel/tree/feature/improve-docs-datamodel/oedatamodel/latest/v111/datapackage/OEDataModel-concrete-datapackage) have been created to ease the process of data creation. 
 
-In addition, an example of a [correctly created datapackage]() is provided, since a very precise procedure is important when creating it.
+In addition, an example of a [correctly created datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/tree/feature/improve-docs-datamodel/examples/Datapackage) is provided, since a very precise procedure is important when creating it. The example datapackage contains a small part of the data from the project open_MODEX. 
 
 ## Release content
 The latest version can be found in the folder [oedatamodel/latest](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest). Each release contains:
@@ -43,11 +43,20 @@ The latest version can be found in the folder [oedatamodel/latest](https://githu
 - Datapackages with template content for each "OEDataModel-concrete-datapackage" and "OEDataModel-normalization-datapackage"
 
 # Usage
-Lern about file and data conventions as well as oemedatamodel field descriptions and table examples that help to create correct datasets.
+Learn about the general approach to transfer data to the oedatamodel format as well as file and data conventions, oemedatamodel field descriptions and table examples that help to create correct datasets.
+
+## General approach 
+
+To use the oedata model for a existing project (assuming that a data structure / datamodel already exists), 2 approaches have been developed so far to migrate to the oeadatamodel format. Both approaches first require a comparison of the data fields of the own data structure with the available fields in the oedata model. As a result, it must be determined which fields fit together, i.e. in which field of the oedata model data can be entered: 
+1. Convert "by hand": 
+- data is entered manually into the oedatamodel concrete format. Then a datapackage must be created from the resulting csv files.  
+2. Create a mapping: 
+-  a datapackage is created from the individual data structure without any changes to the structure itself. Then a mapping that maps the fields of the individual data structure to the fields of the oedatamodel must be created using the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api). Mappings can be used to upload the data to the OEP. Since the data should also be mapped back into the individual data format, an "upload" and a "download" mapping must be created.
+- 
 
 ## File conventions
 To use the oedatamodel we recommend the use of [csv]() files to convert data from an individual data structure into the oedatamodel concrete format.  
-To avoid further conflicts a ";" must be used as column/field delimiter in the csv file. The correct application is demonstrated by [templates]().
+To avoid further conflicts a ";" must be used as column/field delimiter in the csv file. The correct application is demonstrated in this [template](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scenario.csv).
 
 ##  Data conventions
 ### Fields that are not present or empty
@@ -154,33 +163,25 @@ The following is intended to provide a simple example table as well as a detaile
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 ## Datapackge description, conventions and examples
+- tbd
 
 ### Conventions to folder structure
-
+- tbd
 
 
 ### Example Datapackages
-
-    - Example JSON: 
-        - [OEDataModel-concrete-datapackage](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage.json)
-
-    - Example CSV: 
-        - [concrete-datapackage_scalar](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scalar.csv)
-        - [OEDataModel-concrete-datapackage_scenario](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scenario.csv)
-        - [OEDataModel-concrete-datapackage_timeseries](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_timeseries.csv)
+- tbd
 
 # Next Steps: Upload data(-package) to the OEP
 
-### Conversion of an individual data structure into oedatamodel 
-To upload a dataset, several steps have to be carried out. there are different approaches. First, it is always necessary to create a datapackage from your own data. There are two possibilities to transfer the data from an individual data structure into the oedatamodel. 
-1. data is entered manually into the oedatamodel concrete format and a datapackage is created from it. 
-2. a datapackage is created from the individual data structure without any changes to the structure itself. Then a mapping that maps the fields of the individual data structure to the fields of the oedatamodel is created using the [oedatamodel_api]().
-
 ### Create new oedatamodel tables
-Before data can be uploaded to the database, the tables for it must be created on the OEP. For this purpose, the oedatamodel normalization variation is used and the tables are given project-specific names. For example, the tables are then called "project_name_oed_scenario" etc. . This allows the oedatamodel to be used by multiple projects. For the creation of the tables on the OEP a [Guide](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb) is offered.
+
+Before data can be uploaded to the OEP/database, the oedatamodel tables must be created on the OEP. To create tables on the OEP, the data structure of the tables is defined in a json file. The file contains all information about table names, schema, field names and data types as well as the relations between the tables. A template for the json file with all information about the tables can be found here: [OEDataModel-normalization](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/datapackage/OEDataModel-normalization-datapackage/OEDataModel-normalization-datapackage.json).
+To distinguish the tables from other projects, a new table name must be assigned.To give tables an new name the value under the [key "name"](https://github.com/OpenEnergyPlatform/oedatamodel/blob/fac7f0318742728e0c45a2448bdaac426d85859d/oedatamodel/latest/v111/datapackage/OEDataModel-normalization-datapackage/OEDataModel-normalization-datapackage.json#L82) must be adapted. 
+For example, the tables should then be then called **"project_name_oed_scenario"** etc. . This allows the oedatamodel to be used by multiple projects. To learn how to create tables on the OEP see this [Guide](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb).
 
 ### Upload a datapackage
-Subsequently, the oedatamodel_api can be used for both use cases of the data transfer. Here, datapackges can be imported via a website as a zipe Datapackage folder and then uploaded to the OEP optinally with or without mapping to the tables. the datapackge is validated before the upload. For more information about the use of the oedatamodel_api and the upload see here.
+Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackges can be imported via a [website](https://modex.rl-institut.de/upload_datapackage/) as a ziped Datapackage folder and then uploaded to the OEP, optinally with or without using a mapping. The datapackge is validated before the upload. The validation is very strict. In order to avoid problems here, the specification from the [datapackage example]()should be adhered to very precisely.
 
 # FAQ
 
