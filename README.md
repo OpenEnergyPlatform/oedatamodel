@@ -42,9 +42,9 @@ Learn about the general approach to transfer data to the oedatamodel format as w
 To use the oedata model for an existing project (assuming that a data structure / datamodel already exists), 2 approaches have been developed so far to migrate to the oeadatamodel format. Both approaches first require a comparison of the data fields of the currently used data structure with the available fields in the oedata model. As a result, it must be determined which fields fit together, i.e. in which field of the oedata model data can be entered: 
 1. Convert "by hand": 
 - data is entered manually into the oedatamodel concrete format. Then a datapackage must be created from the resulting csv files.  
-2. Create a mapping: 
--  a datapackage is created from the individual data structure without any changes to the structure itself. Then a mapping that maps the fields of the individual data structure to the fields of the oedatamodel must be created using the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api). Mappings can be used to upload the data to the OEP. Since the data should also be mapped back into the individual data format, an "upload" and a "download" mapping must be created.
-- 
+2. Create mappings (upload and download): 
+-  a datapackage is created with the individual/currently used data structure without any changes to the structure itself. Then a mapping that maps the fields of the individual data structure to the fields of the oedatamodel must be created using the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api). This mapping can be used to upload the data to the OEP. 
+- a second mapping must be created to download the data. Therefore the data on the OEP must be mapped back into the individual data format. Similar to the upload mapping, matching fields are mapped again. But this time the mapping is built from the oedatamodel normalization format to the original data structure. So exactly the other way around like the upload mapping.
 
 ## File conventions
 To use the oedatamodel we recommend the use of [csv](https://en.wikipedia.org/wiki/Comma-separated_values) files to convert data from an individual data structure into the oedatamodel concrete format.  
@@ -67,7 +67,7 @@ A series ist stored inside an array datatype, each value is delimited by ",".
 | [1423.55706450302, 1566.42140196079]|
 
 ### Usage of single ('') and double ("") quotes 
-
+- TBD
 
 ## Table descrption and examples
 
@@ -177,9 +177,11 @@ To distinguish the tables from other projects, a new table name must be assigned
 For example, the tables should then be then called **"project_name_oed_scenario"** etc. . This allows the oedatamodel to be used by multiple projects. To learn how to create tables on the OEP see this [Guide](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb).
 
 ### Upload a datapackage
-Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackges can be imported to the api via a website (requires a locally installed instance of the oedatamodel_api) as a zipped Datapackage folder and then uploaded to the OEP, optinally with or without using a mapping. The datapackge is validated before the upload. The validation is very strict. In order to avoid problems here, the specification from the [datapackage example]()should be adhered to very precisely.
+Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackges can be imported to the api via a website (requires a locally installed instance of the oedatamodel_api) as a zipped Datapackage folder and then uploaded to the OEP, optinally with or without using a mapping. The datapackge is validated before the upload. The validation is very strict. In order to avoid problems here, the [datapackage example](https://github.com/OpenEnergyPlatform/oedatamodel/tree/feature/improve-docs-datamodel/examples/Datapackage) should be adhered to very precisely.
 
 # FAQ
+This section collects answers to frequently asked questions about the application of the oedatamodel. If you have a question, please contact the following.
+- Sarah.Berendes@rl-institut.de
 
 # How to edit the Entity Relationship Modell
 
