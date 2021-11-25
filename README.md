@@ -2,15 +2,6 @@
 
 <a href="http://oep.iks.cs.ovgu.de/"><img align="right" width="200" height="200" src="https://avatars2.githubusercontent.com/u/37101913?s=400&u=9b593cfdb6048a05ea6e72d333169a65e7c922be&v=4" alt="OpenEnergyPlatform"></a>
 
---------->
-ToDo:
-- Excel/csv Bespieldaten
-- modex beispiel data package
-- Beispiele im Text verlinken
-- Sonderfälle beschreiben FAQ
-    - verschiedene parameter_name
-
-<---------
 
 # Open Energy Family - Datamodel
 A common open energy data model (oedatamodel) and datapackage format for energy and scenario data.
@@ -25,10 +16,10 @@ During development, it became apparent that the usability of datamodels that are
 - [Variation 2 Concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/OEDataModel-concrete.pdf): Efforts are made to simplify handling when a user fills in data to the oedatamodel tables using file formats like .csv. The Concrete variation provides tables for scenario, scalar and timeseries data. This allows data sets to be filled in one table each for sclar or timeseries data.
 
 ## Technical documentation
-The technical documentation is provided in the form of entity relationship models (ERM). The structure of the data model is shown on the basis of tables with column names, data types and key attributes, as well as the relationships between tables. This information is important to understand the structure and to install the data model on a database such as [ProstgreSQL](). 
+The technical documentation is provided in the form of entity relationship models (ERM) see [ERM for normalization](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/OEDataModel-normalization.pdf) and [ERM for concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/OEDataModel-concrete.pdf). The structure of the data model is shown on the basis of tables with column names, data types and key attributes, as well as the relationships between tables. This information is important to understand the structure and to install the data model on a database such as [ProstgreSQL](https://www.postgresql.org/). 
 
 ## Datapackage
-To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage]() format. A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files. 
+To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage](https://frictionlessdata.io/standards/#standards-toolkit) format. A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files. 
 
 ## Overview of all examples
 To enhance the usability of the oedatamodel examples were created. On the one hand, there are descriptions and examples for each table of the oedatamodel concrete variation, which can be found [here](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop#description-and-examples), and on the other hand, [template csv files](https://github.com/OpenEnergyPlatform/oedatamodel/tree/feature/improve-docs-datamodel/oedatamodel/latest/v111/datapackage/OEDataModel-concrete-datapackage) have been created to ease the process of data creation. 
@@ -38,16 +29,17 @@ In addition, an example of a [correctly created datapackage](https://github.com/
 ## Release content
 The latest version can be found in the folder [oedatamodel/latest](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest). Each release contains:
 
-- ERM "OEDataModel-normalization.pdf" and "OEDataModel-concrete.pdf" 
+- Specification of the OEDataModel as ERM "OEDataModel-normalization.pdf" and "OEDataModel-concrete.pdf" 
 - .er files that are used to generate the ERM as .pdf files
 - Datapackages with template content for each "OEDataModel-concrete-datapackage" and "OEDataModel-normalization-datapackage"
+- Working example to get started with the OEDataModel
 
 # Usage
 Learn about the general approach to transfer data to the oedatamodel format as well as file and data conventions, oemedatamodel field descriptions and table examples that help to create correct datasets.
 
 ## General approach 
 
-To use the oedata model for a existing project (assuming that a data structure / datamodel already exists), 2 approaches have been developed so far to migrate to the oeadatamodel format. Both approaches first require a comparison of the data fields of the own data structure with the available fields in the oedata model. As a result, it must be determined which fields fit together, i.e. in which field of the oedata model data can be entered: 
+To use the oedata model for an existing project (assuming that a data structure / datamodel already exists), 2 approaches have been developed so far to migrate to the oeadatamodel format. Both approaches first require a comparison of the data fields of the currently used data structure with the available fields in the oedata model. As a result, it must be determined which fields fit together, i.e. in which field of the oedata model data can be entered: 
 1. Convert "by hand": 
 - data is entered manually into the oedatamodel concrete format. Then a datapackage must be created from the resulting csv files.  
 2. Create a mapping: 
@@ -55,7 +47,7 @@ To use the oedata model for a existing project (assuming that a data structure /
 - 
 
 ## File conventions
-To use the oedatamodel we recommend the use of [csv]() files to convert data from an individual data structure into the oedatamodel concrete format.  
+To use the oedatamodel we recommend the use of [csv](https://en.wikipedia.org/wiki/Comma-separated_values) files to convert data from an individual data structure into the oedatamodel concrete format.  
 To avoid further conflicts a ";" must be used as column/field delimiter in the csv file. The correct application is demonstrated in this [template](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v111/datapackage/OEDataModel-concrete-datapackage/OEDataModel-concrete-datapackage_scenario.csv).
 
 ##  Data conventions
@@ -74,12 +66,14 @@ A series ist stored inside an array datatype, each value is delimited by ",".
 |--------------------|
 | [1423.55706450302, 1566.42140196079]|
 
+### Usage of single ('') and double ("") quotes 
+
 
 ## Table descrption and examples
 
 The following is intended to provide a simple example table as well as a detailed description on all fields and columns for ech tabel of the oedatamodel **concrete** variation. 
 
-**Data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/v100/OEDataModel-concrete.pdf)**
+**Data model: [OEDataModel-concrete](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/oedatamodel/latest/OEDataModel-concrete.pdf)**
 
 ### Scenario description
 
@@ -96,9 +90,9 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **scenario id** (PK) | **scenario** | **region** | **year**  | **source** | **comment**  |
 |----------------------|--------------|------------|-----------|------------|--------------|
-| 1                    | base         | {'DE':['BE', 'BB']}     | 2016      | modelname and/or attribution |The scenario depicts the electricity sector in Germany. It is divided into 18 nodes, 16 nodes as federal states and 2 offshore nodes. Germany's neighbouring countries are not considered.           |
-| 2                    | variation1   | {'DE':['BB']}     | 2020      | modelname and/or attribution | Some scenario descripton.         |
-| 3                    | variation2   | {'DE':['BB']}  | 2030      | modelname and/or attribution | Some scenario descripton         |
+| 1                    | base         | {"DE":["BE", "BB"]}     | 2016      | modelname and/or attribution |The scenario depicts the electricity sector in Germany. It is divided into 18 nodes, 16 nodes as federal states and 2 offshore nodes. Germany's neighbouring countries are not considered.           |
+| 2                    | variation1   | {"DE":["BB"]}     | 2020      | modelname and/or attribution | Some scenario descripton.         |
+| 3                    | variation2   | {"DE":["BB"]}  | 2030      | modelname and/or attribution | Some scenario descripton         |
 | ...                  | ...          | ...        | ...       | ...        | ...          |
 
 
@@ -126,9 +120,9 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **scalar id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**value** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| 1   | 1 | ['BB']    | solar radiation | electricity | variable costs | photovoltaics | utility | 0.00 | €/MWh |       |       | modelname and/or attribution |       |
-| 2   | 1 | ['BE']      | lignite  | co2 |   output ratio |   generator | unknown | 0.40 |  t/MWh |       |       | modelname and/or attribution |       |
-| 3   | 2 | ['BB']      | electricity | electricity     |   installed capacity |   storage |     battery |      0.29 |      t/MWh |       |   {"value":"Capacity based on the date of commissioning and the remaining life of the technology"}  | modelname and/or attribution |       |
+| 1   | 1 | ["BB"]    | solar radiation | electricity | variable costs | photovoltaics | utility | 0.00 | €/MWh |       |       | modelname and/or attribution |       |
+| 2   | 1 | ["BE"]      | lignite  | co2 |   output ratio |   generator | unknown | 0.40 |  t/MWh |       |       | modelname and/or attribution |       |
+| 3   | 2 | ["BB"]      | electricity | electricity     |   installed capacity |   storage |     battery |      0.29 |      t/MWh |       |   {"value":"Capacity based on the date of commissioning and the remaining life of the technology"}  | modelname and/or attribution |       |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 
@@ -158,19 +152,21 @@ The following is intended to provide a simple example table as well as a detaile
 
 | **timeseries id** (PK) | **scenario id** (FK) | **region** | **input energy vector**   | **output energy vector** | **parameter name** | **technology** | **technology type** |**timeindex start** | **timeindex stop** | **timeindex resolution** | **series** | **unit** | **tags** | **method** | **source** | **comment** |
 |-----------|--------------|------------|----------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
-| 1   | 1 | ['BE']      | electricity     |    electricity |    COP |      heat pump |     air-air |      2016-09-30 16:00:00+01:00 |      2016-09-30 17:00:00+01:00 |      1 |      [0.014; 0] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area | modelname and/or attribution |       |
-| 2   | 1 | ['BB']      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area | modelname and/or attribution |       |
+| 1   | 1 | ["BE"]      | electricity     |    electricity |    COP |      heat pump |     air-air |      2016-09-30 16:00:00+01:00 |      2016-09-30 17:00:00+01:00 |      1 |      [0.014; 0] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area | modelname and/or attribution |       |
+| 2   | 1 | ["BB"]      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area | modelname and/or attribution |       |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
 ## Datapackge description, conventions and examples
-- tbd
+As described in the introduction, a frictionless datapackage consists of csv files in which the data is stored and a json file named datapackage.json for metadata and to describe the data structure. Furthermore, it is important for the upload process to zip the datapackage to compress the amount of data. In this section, conventions are given for the folder structure in which the zipped datapackage must be present in order to be read. It also explains how the datapackage.json must be structured. 
+
+### Metadata and data schema
+The [datapackage.json](https://github.com/OpenEnergyPlatform/oedatamodel/blob/feature/improve-docs-datamodel/examples/Datapackage/datapackage.json) contains the name of the datapackage and describes the structure of the data tables as this example shows. This information meets the minimum requirements for a frictionless datapackage and allows validation. There are two top level keys created in the json name and resources. The resources contain several subkeys through which a detailed description of the data structure is possible. 
+
+In the future, it should be possible to use all fields of the [oemetadata](https://github.com/OpenEnergyPlatform/oemetadata/blob/develop/metadata/latest/example.json) to provide extensive metadata. However, this feature is still in the development stage.
 
 ### Conventions to folder structure
-- tbd
-
-
-### Example Datapackages
-- tbd
+The folder structure is about creating a zip archive that contains the data and the datapackage.json files in an expected location so that they can technically be retrieved.
+To avoid errors that can occur when uploading the datapackage, a folder structure must be maintained. However, the folder structure can be changed by modifying the datapackage.json file. To do this, the [path subkey](https://github.com/OpenEnergyPlatform/oedatamodel/blob/f230443075c8fed049a3a25a1abc94fabc54969b/examples/Datapackage/datapackage.json#L7) is adjusted under the key resources. There the exact path to the respective csv file must be deposited. The datapackage.json file should always be stored on the top level in the directory, since it is read first.
 
 # Next Steps: Upload data(-package) to the OEP
 
@@ -181,7 +177,7 @@ To distinguish the tables from other projects, a new table name must be assigned
 For example, the tables should then be then called **"project_name_oed_scenario"** etc. . This allows the oedatamodel to be used by multiple projects. To learn how to create tables on the OEP see this [Guide](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb).
 
 ### Upload a datapackage
-Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackges can be imported via a [website](https://modex.rl-institut.de/upload_datapackage/) as a ziped Datapackage folder and then uploaded to the OEP, optinally with or without using a mapping. The datapackge is validated before the upload. The validation is very strict. In order to avoid problems here, the specification from the [datapackage example]()should be adhered to very precisely.
+Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackges can be imported to the api via a website (requires a locally installed instance of the oedatamodel_api) as a zipped Datapackage folder and then uploaded to the OEP, optinally with or without using a mapping. The datapackge is validated before the upload. The validation is very strict. In order to avoid problems here, the specification from the [datapackage example]()should be adhered to very precisely.
 
 # FAQ
 
