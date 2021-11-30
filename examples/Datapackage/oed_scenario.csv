@@ -1,0 +1,2 @@
+id;scenario;region;year;source;comment
+2;scenario_variation_1;"{""DE"": [""BB"",""BE"",""BW"",""BY"",""HB"",""HE"",""HH"",""MV"",""NI"",""NW"",""RP"",""SH"",""SL"",""SN"",""ST"",""TH"",""Baltic"",""North""]}";2016;;['The scenario depicts the electricity sector in Germany. It is divided into 18 nodes, 16 nodes as federal states and 2 offshore nodes. Germany's neighbouring countries are not considered.']
