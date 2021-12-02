@@ -180,7 +180,7 @@ For example, the tables should then be then called **"project_name_oed_scenario"
 Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackges can be imported to the api via a website (requires a locally installed instance of the oedatamodel_api) as a zipped Datapackage folder and then uploaded to the OEP, optinally with or without using a mapping. The datapackge is validated before the upload. The validation is very strict. In order to avoid problems here, the [datapackage example](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/examples) should be adhered to very precisely.
 
 # FAQ
-This section collects answers to frequently asked questions about the application of the oedatamodel. If you have a question, please create an [issue](https://github.com/OpenEnergyPlatform/oedatamodel/issues/new) in this reposetory or use following contact.
+This section collects answers to frequently asked questions about the application of the oedatamodel. If you have a question, please create an [issue](https://github.com/OpenEnergyPlatform/oedatamodel/issues/new) in this repository or use following contact.
 - Sarah.Berendes@rl-institut.de
 
 # How to edit the Entity Relationship Modell
