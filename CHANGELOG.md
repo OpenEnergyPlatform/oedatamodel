@@ -30,7 +30,7 @@ Here is a template for new release sections
 ## [1.2.0] - 20XX-MM-DD
 
 ### Added
-Test
+Test Test merge konflikt
 -
 ### Changed
 -
