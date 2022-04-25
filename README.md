@@ -7,7 +7,7 @@
 A common open energy data model (oedatamodel) and datapackage format for energy and scenario data.
 
 # Introduction
-The oedatamodel is provided as a template data model and is designed for and used by energy system modelers. The core objective of the oedatamodel is to provide a generic data structure in which data from multiple frameworks can be stored. A uniform data structure should facilitate the comparability of the different models. The oedatamodel was developed from the results of 5 energy system modeling frameworks, which include: Balomrel, oemof, genesys-mod, genesys-mod-2 and urbs. In addition existing approaches and ideas such as the [IAMC data format](https://github.com/IAMconsortium/pyam#data-model) or [Do-a-thon: Towards a common data standard 
+The oedatamodel is provided as a template data model and is designed for and used by energy system modelers. The core objective of the oedatamodel is to provide a generic data structure in which data from multiple frameworks can be stored. A uniform data structure should facilitate the comparability of the different models. The oedatamodel was developed from the results of 5 energy system modeling frameworks, which include: Balomrel, oemof, GENeSYS-MOD, GENESYS-2 and urbs. In addition existing approaches and ideas such as the [IAMC data format](https://github.com/IAMconsortium/pyam#data-model) or [Do-a-thon: Towards a common data standard 
 for integrated assessment and energy systems modelling](https://forum.openmod-initiative.org/t/do-a-thon-towards-a-common-data-standard-for-integrated-assessment-and-energy-systems-modelling/1774/5) were adopted in the development process. 
 
 ## Datamodel variations 
