@@ -1,31 +1,36 @@
-{"name": "Oedatamodel - General Energy Modell Datapackage",
+{
+    "name": "Oedatamodel - General Energy Modell Datapackage",
     "title": "OpenEnergyPlatform data format for scenario data",
     "id": "",
     "description": "datamodel, metadata and examples provided as datapackage",
     "language": ["en-GB"],
     "keywords": ["datamodel", "datapackage", "genral energy dataformat"],
     "publicationDate": "2020-08-11",
-    "context":
-        {"homepage": "https://openenergy-platform.org/",
+    "context": {
+        "homepage": "https://openenergy-platform.org/",
         "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/README.md",
         "sourceCode": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest",
         "contact": "",
         "grantNo": "",
         "fundingAgency": "",
         "fundingAgencyLogo": "",
-        "publisherLogo": ""},
-    "spatial":
-        {"location": "",
+        "publisherLogo": ""
+    },
+    "spatial": {
+        "location": "",
         "extent": "",
-        "resolution": ""},
-    "temporal": 
-        {"referenceDate": "",
-        "timeseries": 
-            {"start": "",
+        "resolution": ""
+    },
+    "temporal": {
+        "referenceDate": "",
+        "timeseries": {
+            "start": "",
             "end": "",
             "resolution": "",
             "alignment": "",
-            "aggregationType": ""} },
+            "aggregationType": ""
+        }
+    },
     "sources": [
         {
             "title": "Open energy datamodel",
@@ -40,7 +45,8 @@
                     "attribution": "© Reiner Lemoine Institut"
                 }
             ]
-        }],
+        }
+    ],
     "licenses": [
         {
             "name": "",
@@ -48,89 +54,167 @@
             "path": "",
             "instruction": "",
             "attribution": ""
-        } 
+        }
     ],
     "contributors": [
         {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
         {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"},
         {"title": "jh-RLI", "email": null, "date": "2020-11-08", "object": "metadata", "comment": "Update Ressources"} ],
     "resources": [
+        {
+            "profile": "tabular-data-resource",
+            "name": "model_draft.oed_scenario",
+            "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_scenario",
+            "format": "PostgreSQL",
+            "encoding" : "UTF-8",
+            "schema": {
+                "fields": [
+                    {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "scenario", "description": "Scenario name", "type": "text", "unit": null},
+                    {"name": "region", "description": "Country or region, you can add a upper region with sub regions using json syntax", "type": "json", "unit": null},
+                    {"name": "year", "description": "Year", "type": "integer", "unit": null},
+                    {"name": "source", "description": "Source", "type": "text", "unit": null},
+                    {"name": "comment", "description": "Comment", "type": "text", "unit": null}
+                ],
+                "primaryKey": ["id"],
+                "foreignKeys": []
+            },
+            "dialect": {
+                "delimiter": ";",
+                "decimalSeparator": "."
+            }
+        },
+        {
+            "profile": "tabular-data-resource",
+            "name": "model_draft.oed_scalar_instance",
+            "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_scalar_instance",
+            "format": "PostgreSQL",
+            "encoding" : "UTF-8",
+            "schema": {
+                "fields": [
+                    {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "scenario_id", "description": "Scenario", "type": "bigint", "unit": null},
+                    {"name": "scalar_id", "description": "Scalar", "type": "bigint", "unit": null},
+                    {"name": "value", "description": "Value", "type": "float", "unit": null}
+                ],
+                "primaryKey": ["id"],
+                "foreignKeys": [
+                    {
+                        "fields": ["scenario_id"],
+                        "reference": {
+                            "resource": "model_draft.oed_scenario",
+                            "fields": ["id"]
+                        }
+                    },
+                    {
+                        "fields": ["scalar_id"],
+                        "reference": {
+                            "resource": "model_draft.oed_scalar",
+                            "fields": ["id"]
+                        }
+                    }
+                ]
+            },
+            "dialect": {
+                "delimiter": ";",
+                "decimalSeparator": "."
+            }
+        },
+        {
+            "profile": "tabular-data-resource",
+            "name": "model_draft.oed_timeseries_instance",
+            "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_timeseries_instance",
+            "format": "PostgreSQL",
+            "encoding" : "UTF-8",
+            "schema": {
+                "fields": [
+                    {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "scenario_id", "description": "Scenario", "type": "bigint", "unit": null},
+                    {"name": "timeseries_id", "description": "Scalar", "type": "bigint", "unit": null}
+                ],
+                "primaryKey": ["id"],
+                "foreignKeys": [
+                    {
+                        "fields": ["scenario_id"],
+                        "reference": {
+                            "resource": "model_draft.oed_scenario",
+                            "fields": ["id"]
+                        }
+                    },
+                    {
+                        "fields": ["timeseries_id"],
+                        "reference": {
+                            "resource": "model_draft.oed_timeseries",
+                            "fields": ["id"]
+                        }
+                    }
+                ]
+            },
+            "dialect": {
+                "delimiter": ";",
+                "decimalSeparator": "."
+            }
+        },
+        {
+            "profile": "tabular-data-resource",
+            "name": "model_draft.oed_data",
+            "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_data",
+            "format": "PostgreSQL",
+            "encoding" : "UTF-8",
+            "schema": {
+                "fields": [
+                    {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "region", "description": "Country or region, add a flow from region a -> b: ['a', 'b']", "type": "text array", "unit": null},
+                    {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null},
+                    {"name": "output_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.", "type": "text", "unit": null},
+                    {"name": "parameter_name", "description": "It describes a considered property of an element in the energy system.", "type": "text", "unit": null},
+                    {"name": "technology", "description": "It describes an element of the modelled energy system that processes an energy vector.", "type": "text", "unit": null},
+                    {"name": "technology_type", "description": "The specification can be technological, or freely user-defined, based on the requirements of the model.", "type": "text", "unit": null},
+                    {"name": "type", "description": "value: scalar or timeseries indicate the related table", "type": "text", "unit": null},
+                    {"name": "unit", "description": "Parameter unit", "type": "text", "unit": null},
+                    {"name": "tags", "description": "Free classification with key-value pairs", "type": "json", "unit": null},
+                    {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
+                    {"name": "source", "description": "Source", "type": "text", "unit": null},
+                    {"name": "comment", "description": "Comment", "type": "text", "unit": null}],
+                "primaryKey": ["id"],
+                "foreignKeys": []
+            },
+            "dialect": {
+                "delimiter": ";",
+                "decimalSeparator": "."
+            }
+        },
+
         {"profile": "tabular-data-resource",
-        "name": "model_draft.oed_scenario",
-        "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_scenario",
-        "format": "PostgreSQL",
-        "encoding" : "UTF-8",
-        "schema": {
-            "fields": [
-                {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-                {"name": "scenario", "description": "Scenario name", "type": "text", "unit": null},
-                {"name": "region", "description": "Country or region, you can add a upper region with sub regions using json syntax", "type": "json", "unit": null},
-                {"name": "year", "description": "Year", "type": "integer", "unit": null},
-                {"name": "source", "description": "Source", "type": "text", "unit": null},
-                {"name": "comment", "description": "Comment", "type": "text", "unit": null} ],
-            "primaryKey": ["id"],
-            "foreignKeys": [{
-                    "fields": [null],
-                    "reference": {
-                        "resource": null,
-                        "fields": [null] } } ] },
-        "dialect":
-            {"delimiter": ";",
-            "decimalSeparator": "."} },
-    
-        {"profile": "tabular-data-resource",
-        "name": "model_draft.oed_data",
-        "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_data",
-        "format": "PostgreSQL",
-        "encoding" : "UTF-8",
-        "schema": {
-            "fields": [
-                {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-                {"name": "scenario_id", "description": "Scenario name", "type": "bigint", "unit": null},
-                {"name": "region", "description": "Country or region, add a flow from region a -> b: ['a', 'b']", "type": "text array", "unit": null},
-                {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null},
-                {"name": "output_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.", "type": "text", "unit": null},
-                {"name": "parameter_name", "description": "It describes a considered property of an element in the energy system.", "type": "text", "unit": null},
-                {"name": "technology", "description": "It describes an element of the modelled energy system that processes an energy vector.", "type": "text", "unit": null},
-                {"name": "technology_type", "description": "The specification can be technological, or freely user-defined, based on the requirements of the model.", "type": "text", "unit": null},
-                {"name": "type", "description": "value: scalar or timeseries indicate the related table", "type": "text", "unit": null},
-                {"name": "unit", "description": "Parameter unit", "type": "text", "unit": null},
-                {"name": "tags", "description": "Free classification with key-value pairs", "type": "json", "unit": null},
-                {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
-                {"name": "source", "description": "Source", "type": "text", "unit": null},
-                {"name": "comment", "description": "Comment", "type": "text", "unit": null}],
-            "primaryKey": ["id"],
-            "foreignKeys": [{
-                    "fields": ["scenario_id"],
-                    "reference": {
-                        "resource": "model_draft.oed_scenario",
-                        "fields": ["id"] } } ] },
-        
-        "dialect":
-            {"delimiter": ";",
-            "decimalSeparator": "."} },
-    
-        {"profile": "tabular-data-resource",
-        "name": "model_draft.oed_scalar",
-        "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_scalar",
-        "format": "PostgreSQL",
-        "encoding" : "UTF-8",
-        "schema": {
-            "fields": [
-                {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-                {"name": "year", "description": "Year", "type": "integer", "unit": null},
-                {"name": "value", "description": "Value", "type": "float", "unit": "kw"} ],
-            "primaryKey": ["id"],
-            "foreignKeys": [{
-                    "fields": ["id"],
-                    "reference": {
-                        "resource": "model_draft.oed_data",
-                        "fields": ["id"] } } ] },
-        "dialect":
-            {"delimiter": ";",
-            "decimalSeparator": "."} },
-    
-        {"profile": "tabular-data-resource",
+            "name": "model_draft.oed_scalar",
+            "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_scalar",
+            "format": "PostgreSQL",
+            "encoding" : "UTF-8",
+            "schema": {
+                "fields": [
+                    {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
+                    {"name": "year", "description": "Year", "type": "integer", "unit": null},
+                    {"name": "bandwidth", "description": "Bandwidth", "type": "float array", "unit": null},
+                    {"name": "bandwidth_type", "description": "Bandwidth", "type": "text", "unit": null}
+                ],
+                "primaryKey": ["id"],
+                "foreignKeys": [
+                    {
+                        "fields": ["id"],
+                        "reference": {
+                            "resource": "model_draft.oed_data",
+                            "fields": ["id"]
+                        }
+                    }
+                ]
+            },
+            "dialect": {
+                "delimiter": ";",
+                "decimalSeparator": "."
+            }
+        },
+        {
+            "profile": "tabular-data-resource",
             "name": "model_draft.oed_timeseries",
             "path": "https://openenergy-platform.org/dataedit/view/model_draft/_prefix_oed_timeseries",
             "format": "PostgreSQL",
@@ -143,30 +227,42 @@
                     {"name": "timeindex_resolution", "description": "Timesteps", "type": "interval", "unit": null},
                     {"name": "series", "description": "Timesteps", "type": "float array", "unit": null} ],
                 "primaryKey": ["data_id"],
-                "foreignKeys": [{
+                "foreignKeys": [
+                    {
                         "fields": ["id"],
                         "reference": {
                             "resource": "model_draft.oed_data",
-                            "fields": ["id"] } } ] },
-            "dialect":
-                {"delimiter": ";",
-                "decimalSeparator": "."} } ],
-    
+                            "fields": ["id"]
+                        }
+                    }
+                ]
+            },
+            "dialect": {
+                "delimiter": ";",
+                "decimalSeparator": "."
+            }
+        }
+    ],
     "review": {
         "path": null,
         "badge": null
     },
     "metaMetadata":
-        {"metadataVersion": "OEP-1.4.0",
-        "metadataLicense":
-            {"name": "CC0-1.0",
+    {
+        "metadataVersion": "OEP-1.4.0",
+        "metadataLicense": {
+            "name": "CC0-1.0",
             "title": "Creative Commons Zero v1.0 Universal",
-            "path": "https://creativecommons.org/publicdomain/zero/1.0/"} },
-    "_comment":
-        {"metadata": "Metadata documentation and explanation (https://github.com/OpenEnergyPlatform/organisation/wiki/metadata)",
+            "path": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+    },
+    "_comment": {
+        "metadata": "Metadata documentation and explanation (https://github.com/OpenEnergyPlatform/organisation/wiki/metadata)",
         "dates": "Dates and time must follow the ISO8601 including time zone (YYYY-MM-DD or YYYY-MM-DDThh:mm:ss±hh)",
         "units": "Use a space between numbers and units (100 m)",
         "languages": "Languages must follow the IETF (BCP47) format (en-GB, en-US, de-DE)",
         "licenses": "License name must follow the SPDX License List (https://spdx.org/licenses/)",
         "review": "Following the OEP Data Review (https://github.com/OpenEnergyPlatform/data-preprocessing/wiki)",
-        "null": "If not applicable use (null)"} }
+        "null": "If not applicable use (null)"
+    }
+}
