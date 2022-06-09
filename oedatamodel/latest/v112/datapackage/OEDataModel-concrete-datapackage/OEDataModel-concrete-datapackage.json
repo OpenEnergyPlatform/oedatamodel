@@ -1,13 +1,13 @@
 {
-    "name": "Oedatamodel readable - General Energy Modell Datapackage",
-    "title": "OpenEnergyPlatform data format for scenario data in human readable format",
-    "id": "",
-    "description": "datamodel, metadata and examples provided as datapackage",
-    "language": ["en-GB"],
-    "keywords": ["datamodel", "datapackage", "genral energy dataformat"],
-    "publicationDate": "2020-08-11",
-    "context":
-    {
+  "name": "Oedatamodel readable - General Energy Modell Datapackage",
+  "title": "OpenEnergyPlatform data format for scenario data in human readable format",
+  "id": "",
+  "description": "datamodel, metadata and examples provided as datapackage",
+  "language": ["en-GB"],
+  "subject": [],
+  "keywords": ["datamodel", "datapackage", "genral energy dataformat"],
+  "publicationDate": "2022-06-09",
+  "context": {
         "homepage": "https://openenergy-platform.org/",
         "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/README.md",
         "sourceCode": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest",
@@ -17,22 +17,16 @@
         "fundingAgencyLogo": "",
         "publisherLogo": ""
     },
-    "spatial": {
-        "location": "",
-        "extent": "",
-        "resolution": ""
-    },
-    "temporal": {
-        "referenceDate": "",
-        "timeseries": {
-            "start": "",
-            "end": "",
-            "resolution": "",
-            "alignment": "",
-            "aggregationType": ""
-        }
-    },
-    "sources": [
+  "spatial": {
+    "location": "",
+    "extent": "",
+    "resolution": ""
+  },
+  "temporal": {
+    "referenceDate": "",
+    "timeseries": []
+  },
+  "sources": [
         {
             "title": "Open energy datamodel",
             "description": "oedatamodel for energy model data",
@@ -48,21 +42,14 @@
             ]
         }
     ],
-    "licenses": [
-        {
-            "name": "",
-            "title": "",
-            "path": "",
-            "instruction": "",
-            "attribution": ""
-        }
-    ],
-    "contributors": [
+  "licenses": [],
+  "contributors": [
         {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
         {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"},
-        {"title": "jh-RLI", "email": null, "date": "2020-11-08", "object": "metadata", "comment": "Update Ressources"}
+        {"title": "jh-RLI", "email": null, "date": "2020-11-08", "object": "metadata", "comment": "Update Ressources"},
+        {"title": "henhuy", "email": null, "date": "2022-06-09", "object": "metadata", "comment": "Updated metadata version"}
     ],
-    "resources": [
+  "resources": [
         {
             "profile": "tabular-data-resource",
             "name": "oed_concrete_scenario",
@@ -177,25 +164,28 @@
             }
         }
     ],
-    "review": {
-        "path": "",
-        "badge": ""
-    },
-    "metaMetadata": {
-        "metadataVersion": "OEP-1.4.0",
-        "metadataLicense": {
-            "name": "CC0-1.0",
-            "title": "Creative Commons Zero v1.0 Universal",
-            "path": "https://creativecommons.org/publicdomain/zero/1.0/"
-        }
-    },
-    "_comment": {
-        "metadata": "Metadata documentation and explanation (https://github.com/OpenEnergyPlatform/organisation/wiki/metadata)",
-        "dates": "Dates and time must follow the ISO8601 including time zone (YYYY-MM-DD or YYYY-MM-DDThh:mm:ss±hh)",
-        "units": "Use a space between numbers and units (100 m)",
-        "languages": "Languages must follow the IETF (BCP47) format (en-GB, en-US, de-DE)",
-        "licenses": "License name must follow the SPDX License List (https://spdx.org/licenses/)",
-        "review": "Following the OEP Data Review (https://github.com/OpenEnergyPlatform/data-preprocessing/wiki)",
-        "null": "If not applicable use (null)"
+  "@id": "",
+  "@context": "",
+  "review": {
+    "path": "",
+    "badge": ""
+  },
+  "metaMetadata": {
+    "metadataVersion": "oemetadata_v1.5.1",
+    "metadataLicense": {
+      "name": "CC0-1.0",
+      "title": "Creative Commons Zero v1.0 Universal",
+      "path": "https://creativecommons.org/publicdomain/zero/1.0/"
     }
+  },
+  "_comment": {
+    "metadata": "Metadata documentation and explanation (https://github.com/OpenEnergyPlatform/oemetadata)",
+    "dates": "Dates and time must follow the ISO8601 including time zone (YYYY-MM-DD or YYYY-MM-DDThh:mm:ss±hh)",
+    "units": "Use a space between numbers and units (100 m)",
+    "languages": "Languages must follow the IETF (BCP47) format (en-GB, en-US, de-DE)",
+    "licenses": "License name must follow the SPDX License List (https://spdx.org/licenses/)",
+    "review": "Following the OEP Data Review (https://github.com/OpenEnergyPlatform/data-preprocessing/blob/master/data-review/manual/review_manual.md)",
+    "null": "If not applicable use: null",
+    "todo": "If a value is not yet available, use: todo"
+  }
 }
