@@ -6,7 +6,7 @@
   "language": ["en-GB"],
   "subject": [],
   "keywords": ["datamodel", "datapackage", "general energy dataformat"],
-  "publicationDate": "2020-06-09",
+  "publicationDate": "2022-06-09",
   "context": {
     "homepage": "https://openenergy-platform.org/",
     "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/README.md",
@@ -47,7 +47,7 @@
     {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
     {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"},
     {"title": "jh-RLI", "email": null, "date": "2020-11-08", "object": "metadata", "comment": "Update Ressources"},
-    {"title": "henhuy", "email": null, "date": "2020-06-11", "object": "datapackage", "comment": "Implement bandwidths in ressources"}
+    {"title": "henhuy", "email": null, "date": "2022-06-11", "object": "datapackage", "comment": "Implement bandwidths in ressources"}
   ],
   "resources": [
     {
