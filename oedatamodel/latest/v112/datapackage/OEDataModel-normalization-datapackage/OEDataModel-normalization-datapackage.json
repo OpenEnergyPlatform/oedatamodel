@@ -1,7 +1,7 @@
 {
   "name": "Oedatamodel - General Energy Modell Datapackage",
   "title": "OpenEnergyPlatform data format for scenario data",
-  "id": "",
+  "id": null,
   "description": "datamodel, metadata and examples provided as datapackage",
   "language": ["en-GB"],
   "subject": [],
@@ -11,19 +11,19 @@
     "homepage": "https://openenergy-platform.org/",
     "documentation": "https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/README.md",
     "sourceCode": "https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest",
-    "contact": "",
-    "grantNo": "",
-    "fundingAgency": "",
-    "fundingAgencyLogo": "",
-    "publisherLogo": ""
+    "contact": null,
+    "grantNo": null,
+    "fundingAgency": null,
+    "fundingAgencyLogo": null,
+    "publisherLogo": null
   },
   "spatial": {
-    "location": "",
-    "extent": "",
-    "resolution": ""
+    "location": null,
+    "extent": null,
+    "resolution": null
   },
   "temporal": {
-    "referenceDate": "",
+    "referenceDate": null,
     "timeseries": []
   },
   "sources": [
@@ -47,7 +47,7 @@
     {"title": "jh-RLI", "email": null, "date": "2020-08-11", "object": "datapackage", "comment": "Create template datapackage for oedatamodel"},
     {"title": "jh-RLI", "email": null, "date": "2020-10-08", "object": "metadata", "comment": "Fix links to documentation and source code"},
     {"title": "jh-RLI", "email": null, "date": "2020-11-08", "object": "metadata", "comment": "Update Ressources"},
-    {"title": "henhuy", "email": null, "date": "2022-06-11", "object": "datapackage", "comment": "Implement bandwidths in ressources"}
+    {"title": "henhuy", "email": null, "date": "2022-06-14", "object": "datapackage", "comment": "Implement bandwidths in ressources"}
   ],
   "resources": [
     {
@@ -58,12 +58,12 @@
       "encoding" : "UTF-8",
       "schema": {
         "fields": [
-          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-          {"name": "scenario", "description": "Scenario name", "type": "text", "unit": null},
-          {"name": "region", "description": "Country or region, you can add a upper region with sub regions using json syntax", "type": "json", "unit": null},
-          {"name": "year", "description": "Year", "type": "integer", "unit": null},
-          {"name": "source", "description": "Source", "type": "text", "unit": null},
-          {"name": "comment", "description": "Comment", "type": "text", "unit": null}
+          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "scenario", "description": "Scenario name", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "region", "description": "Country or region, you can add a upper region with sub regions using json syntax", "type": "json", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "year", "description": "Year", "type": "integer", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "source", "description": "Source", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "comment", "description": "Comment", "type": "text", "unit": null, "isAbout": [], "valueReference": []}
         ],
         "primaryKey": ["id"],
         "foreignKeys": []
@@ -81,10 +81,10 @@
       "encoding" : "UTF-8",
       "schema": {
         "fields": [
-          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-          {"name": "scenario_id", "description": "Scenario", "type": "bigint", "unit": null},
-          {"name": "scalar_id", "description": "Scalar", "type": "bigint", "unit": null},
-          {"name": "value", "description": "Value", "type": "float", "unit": null}
+          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "scenario_id", "description": "Scenario", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "scalar_id", "description": "Scalar", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "value", "description": "Value", "type": "float", "unit": null, "isAbout": [], "valueReference": []}
         ],
         "primaryKey": ["id"],
         "foreignKeys": [
@@ -117,9 +117,9 @@
       "encoding" : "UTF-8",
       "schema": {
         "fields": [
-          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-          {"name": "scenario_id", "description": "Scenario", "type": "bigint", "unit": null},
-          {"name": "timeseries_id", "description": "Scalar", "type": "bigint", "unit": null}
+          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "scenario_id", "description": "Scenario", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "timeseries_id", "description": "Scalar", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []}
         ],
         "primaryKey": ["id"],
         "foreignKeys": [
@@ -152,19 +152,19 @@
       "encoding" : "UTF-8",
       "schema": {
         "fields": [
-          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-          {"name": "region", "description": "Country or region, add a flow from region a -> b: ['a', 'b']", "type": "text array", "unit": null},
-          {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null},
-          {"name": "output_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.", "type": "text", "unit": null},
-          {"name": "parameter_name", "description": "It describes a considered property of an element in the energy system.", "type": "text", "unit": null},
-          {"name": "technology", "description": "It describes an element of the modelled energy system that processes an energy vector.", "type": "text", "unit": null},
-          {"name": "technology_type", "description": "The specification can be technological, or freely user-defined, based on the requirements of the model.", "type": "text", "unit": null},
-          {"name": "type", "description": "value: scalar or timeseries indicate the related table", "type": "text", "unit": null},
-          {"name": "unit", "description": "Parameter unit", "type": "text", "unit": null},
-          {"name": "tags", "description": "Free classification with key-value pairs", "type": "json", "unit": null},
-          {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null},
-          {"name": "source", "description": "Source", "type": "text", "unit": null},
-          {"name": "comment", "description": "Comment", "type": "text", "unit": null}],
+          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "region", "description": "Country or region, add a flow from region a -> b: ['a', 'b']", "type": "text array", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "input_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, solar radiation, natural gas, ...) that enters a technology.", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "output_energy_vector", "description": "It describes any type of energy or energy carrier (e.g. electricity, heat, hydrogen, LNG, CO2, ...) that exits a technology.", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "parameter_name", "description": "It describes a considered property of an element in the energy system.", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "technology", "description": "It describes an element of the modelled energy system that processes an energy vector.", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "technology_type", "description": "The specification can be technological, or freely user-defined, based on the requirements of the model.", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "type", "description": "value: scalar or timeseries indicate the related table", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "unit", "description": "Parameter unit", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "tags", "description": "Free classification with key-value pairs", "type": "json", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "method", "description": "Method type (sum, mean, median)", "type": "json", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "source", "description": "Source", "type": "text", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "comment", "description": "Comment", "type": "text", "unit": null, "isAbout": [], "valueReference": []}],
         "primaryKey": ["id"],
         "foreignKeys": []
       },
@@ -181,10 +181,10 @@
       "encoding" : "UTF-8",
       "schema": {
         "fields": [
-          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-          {"name": "year", "description": "Year", "type": "integer", "unit": null},
-          {"name": "bandwidth", "description": "Bandwidth", "type": "float array", "unit": null},
-          {"name": "bandwidth_type", "description": "Bandwidth", "type": "text", "unit": null}
+          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "year", "description": "Year", "type": "integer", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "bandwidth", "description": "Bandwidth", "type": "float array", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "bandwidth_type", "description": "Bandwidth", "type": "text", "unit": null, "isAbout": [], "valueReference": []}
         ],
         "primaryKey": ["id"],
         "foreignKeys": [
@@ -210,11 +210,12 @@
       "encoding" : "UTF-8",
       "schema": {
         "fields": [
-          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null},
-          {"name": "timeindex_start", "description": "Start timestemp", "type": "timestamp", "unit": null},
-          {"name": "timeindex_stop", "description": "Stop timestemp", "type": "timestamp", "unit": null},
-          {"name": "timeindex_resolution", "description": "Timesteps", "type": "interval", "unit": null},
-          {"name": "series", "description": "Timesteps", "type": "float array", "unit": null} ],
+          {"name": "id", "description": "Unique identifier", "type": "bigint", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "timeindex_start", "description": "Start timestemp", "type": "timestamp", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "timeindex_stop", "description": "Stop timestemp", "type": "timestamp", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "timeindex_resolution", "description": "Timesteps", "type": "interval", "unit": null, "isAbout": [], "valueReference": []},
+          {"name": "series", "description": "Timesteps", "type": "float array", "unit": null, "isAbout": [], "valueReference": []}
+        ],
         "primaryKey": ["data_id"],
         "foreignKeys": [
           {
@@ -232,11 +233,11 @@
       }
     }
   ],
-  "@id": "",
-  "@context": "",
+  "@id": null,
+  "@context": null,
   "review": {
-    "path": "",
-    "badge": ""
+    "path": null,
+    "badge": null
   },
   "metaMetadata": {
     "metadataVersion": "oemetadata_v1.5.1",
