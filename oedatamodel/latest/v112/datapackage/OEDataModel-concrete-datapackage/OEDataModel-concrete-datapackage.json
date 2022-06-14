@@ -52,7 +52,7 @@
   "resources": [
         {
             "profile": "tabular-data-resource",
-            "name": "oed_concrete_scenario",
+            "name": "model_draft.oed_scenario",
             "path": "OEDataModel-concrete_scenario.csv",
             "format": "csv",
             "encoding" : "UTF-8",
@@ -83,7 +83,7 @@
         },
         {
             "profile": "tabular-data-resource",
-            "name": "oed_concrete_scalar",
+            "name": "model_draft.oed_scalar_instance",
             "path": "OEDataModel-concrete_scalar.csv",
             "format": "csv",
             "encoding" : "UTF-8",
@@ -110,7 +110,7 @@
                     {
                         "fields": ["scenario_id"],
                         "reference": {
-                            "resource": "oed_concrete_scenario",
+                            "resource": "model_draft.oed_scenario",
                             "fields": ["id"]
                         }
                     }
@@ -123,7 +123,7 @@
         },
         {
             "profile": "tabular-data-resource",
-            "name": "oed_concrete_timeseries",
+            "name": "model_draft.oed_timeseries_instance",
             "path": "OEDataModel-concrete_timeseries.csv",
             "format": "csv",
             "encoding" : "UTF-8",
@@ -152,7 +152,7 @@
                     {
                         "fields": ["scenario_id"],
                         "reference": {
-                            "resource": "oed_concrete_scenario",
+                            "resource": "model_draft.oed_scenario",
                             "fields": ["id"]
                         }
                     }
