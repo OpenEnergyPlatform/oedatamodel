@@ -1,1 +1,3 @@
-id;year;value
+id;year;bandwidth;bandwidth_type
+1;2020;[0.4,0.9];discrete
+2;2020;[500, 1000];continuous

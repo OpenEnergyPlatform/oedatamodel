@@ -1,1 +1,5 @@
-id;scenario_id;region;input_energy_vector;output_energy_vector;parameter_name;technology;technology_type;type;unit;tags;method;source;comment
+id;region;input_energy_vector;output_energy_vector;parameter_name;technology;technology_type;type;unit;tags;method;source;comment
+1;BB;wind_onshore;electricity;efficiency;wind_turbine;wind_onshore;scalar;kW/kW;{};{};dummy;dummy data
+2;BB;wind_onshore;electricity;hub_height;wind_turbine;wind_onshore;scalar;m;{};{};dummy;dummy data
+3;BB;wind_onshore;electricity;power;wind_turbine;wind_onshore;timeseries;MW;{'case': 'low_wind_profile'};{};dummy;dummy data
+4;BB;wind_onshore;electricity;power;wind_turbine;wind_onshore;timeseries;MW;{'case': 'high_wind_profile'};{};dummy;dummy data
