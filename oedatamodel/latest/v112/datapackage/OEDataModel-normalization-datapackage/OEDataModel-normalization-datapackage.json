@@ -217,7 +217,7 @@
           {"name": "timeindex_resolution", "description": "Timesteps", "type": "interval", "unit": null, "isAbout": [], "valueReference": []},
           {"name": "series", "description": "Timesteps", "type": "float array", "unit": null, "isAbout": [], "valueReference": []}
         ],
-        "primaryKey": ["data_id"],
+        "primaryKey": ["id"],
         "foreignKeys": [
           {
             "fields": ["id"],
