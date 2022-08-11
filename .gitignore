@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 # Local files
-tests/local/*.json
-tests/reports/*.json
+tests/local
+tests/reports
+.vscode
