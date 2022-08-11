@@ -26,7 +26,7 @@ jobs:
       - name: Run test suite
         run: |
           python -m pytest --latest=1
-     - name: Archive report
+      - name: Archive report
         uses: actions/upload-artifact@v3
         with:
           name: errors-report
