@@ -58,16 +58,19 @@ def test_compilance(package, version):
     validator = jsonschema_rs.JSONSchema(metadata)
 
     report = []
+    valid_schema = validator.is_valid(package_dictionary)
+    if not valid_schema:
+        for error in validator.iter_errors(package_dictionary):
+            error_dict = {
+                "message": error.message,
+                "schema_path": error.schema_path,
+                "instance_path": error.instance_path
+            }
+            report.append(error_dict)
+        name = Path(package).stem
+        output_file = Path(f"tests/reports/report_{name}_{version}.json")
+        output_file.parent.mkdir(exist_ok=True, parents=True)
+        with open(output_file, "w") as fp:
+            json.dump(report, fp,indent=4, sort_keys=False)
 
-    for error in validator.iter_errors(package_dictionary):
-        error_dict = {
-            "message": error.message,
-            "schema_path": error.schema_path,
-            "instance_path": error.instance_path
-        }
-        report.append(error_dict)
-    name = Path(package).stem
-    output_file = Path(f"tests/reports/report_{name}_{version}.json")
-    output_file.parent.mkdir(exist_ok=True, parents=True)
-    with open(output_file, "w") as fp:
-        json.dump(report, fp,indent=4, sort_keys=False)
+        assert valid_schema, f"The file {Path(package).name} is not valid agianst oemetadata {version}"
