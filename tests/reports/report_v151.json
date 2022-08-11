@@ -1,0 +1,72 @@
+[
+    {
+        "message": "\"\" is not a \"email\"",
+        "schema_path": [
+            "properties",
+            "context",
+            "properties",
+            "contact",
+            "format"
+        ],
+        "instance_path": [
+            "context",
+            "contact"
+        ]
+    },
+    {
+        "message": "\"\" is not a \"uri\"",
+        "schema_path": [
+            "properties",
+            "context",
+            "properties",
+            "fundingAgencyLogo",
+            "format"
+        ],
+        "instance_path": [
+            "context",
+            "fundingAgencyLogo"
+        ]
+    },
+    {
+        "message": "\"\" is not a \"uri\"",
+        "schema_path": [
+            "properties",
+            "context",
+            "properties",
+            "publisherLogo",
+            "format"
+        ],
+        "instance_path": [
+            "context",
+            "publisherLogo"
+        ]
+    },
+    {
+        "message": "\"\" is not a \"date\"",
+        "schema_path": [
+            "properties",
+            "temporal",
+            "properties",
+            "referenceDate",
+            "format"
+        ],
+        "instance_path": [
+            "temporal",
+            "referenceDate"
+        ]
+    },
+    {
+        "message": "{\"aggregationType\":\"\",\"alignment\":\"\",\"end\":\"\",\"resolution\":\"\",\"start\":\"\"} is not of type \"array\"",
+        "schema_path": [
+            "properties",
+            "temporal",
+            "properties",
+            "timeseries",
+            "type"
+        ],
+        "instance_path": [
+            "temporal",
+            "timeseries"
+        ]
+    }
+]
