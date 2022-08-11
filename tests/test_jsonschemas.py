@@ -66,8 +66,8 @@ def test_compilance(package, version):
             "instance_path": error.instance_path
         }
         report.append(error_dict)
-
-    output_file = Path(f"tests/reports/report_{version}.json")
+    name = Path(package).stem
+    output_file = Path(f"tests/reports/report_{name}_{version}.json")
     output_file.parent.mkdir(exist_ok=True, parents=True)
     with open(output_file, "w") as fp:
         json.dump(report, fp,indent=4, sort_keys=False)
