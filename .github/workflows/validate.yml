@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [ "validate" ]
+    branches: [ "validation" ]
   pull_request:
-    branches: [ "validate" ]
+    branches: [ "validation" ]
   workflow_dispatch:
 
 jobs:
@@ -26,4 +26,8 @@ jobs:
       - name: Run test suite
         run: |
           python -m pytest --latest=1
-          
+     - name: Archive report
+        uses: actions/upload-artifact@v3
+        with:
+          name: errors-report
+          path: tests/reports
