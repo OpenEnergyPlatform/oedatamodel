@@ -28,6 +28,7 @@ jobs:
           python -m pytest --latest=1
       - name: Archive report
         uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: errors-report
           path: tests/reports
