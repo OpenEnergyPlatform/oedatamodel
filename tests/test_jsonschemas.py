@@ -56,7 +56,6 @@ def test_compilance(package, version):
     package_dictionary = get_package(package)
     metadata = load_metadata(version)
     validator = jsonschema_rs.JSONSchema(metadata)
-
     report = []
     valid_schema = validator.is_valid(package_dictionary)
     if not valid_schema:
