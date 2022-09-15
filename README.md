@@ -21,6 +21,9 @@ The technical documentation is provided in the form of entity relationship model
 ## Datapackage
 To upload finished datasets to the OEP or to share the data outside of a database we use the [frictionless datapackage](https://frictionlessdata.io/standards/#standards-toolkit) format. A datapackage consists of a datapackage.json file that documents various metadata and the data structure. The data is stored as csv files. 
 
+Validation: We provide a github action (CI) workflow that validates the datapackagae json files for each oedatamodel variation. The validation is performed against
+the latest (oem-v1.5.1) version of the [oemetadata schema.json](https://github.com/OpenEnergyPlatform/oemetadata/blob/develop/metadata/latest/schema.json).
+
 ## Overview of all examples
 To enhance the usability of the oedatamodel examples were created. On the one hand, there are descriptions and examples for each table of the oedatamodel concrete variation, which can be found [here](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop#table-descrption-and-examples), and on the other hand, [template csv files](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/oedatamodel/latest/v111/datapackage/OEDataModel-concrete-datapackage) have been created to ease the process of data creation. 
 
