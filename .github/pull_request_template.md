@@ -5,13 +5,13 @@ Describe the findings of the discussion in the issue or meeting.
 ## Type of change (CHANGELOG.md)
 
 ### Added
-- Add a new class [(#)](https://github.com/rl-institut/super-repo/pull/)
+- Add a new datamodel [(#)](https://github.com/rl-institut/super-repo/pull/)
 
 ### Updated
-- Update a definition [(#)](https://github.com/rl-institut/super-repo/pull/)
+- Update a datamodel [(#)](https://github.com/rl-institut/super-repo/pull/)
 
 ### Removed
-- Remove a broken link [(#)](https://github.com/rl-institut/super-repo/pull/)
+- Remove a entity [(#)](https://github.com/rl-institut/super-repo/pull/)
 
 
 ## Workflow checklist
@@ -20,8 +20,8 @@ Describe the findings of the discussion in the issue or meeting.
 Closes #
 
 ### PR-Assignee
-- [ ] 🐙 Follow the workflow in [CONTRIBUTING.md](https://github.com/rl-institut/super-repo/blob/develop/CONTRIBUTING.md)
-- [ ] 📝 Update the [CHANGELOG.md](https://github.com/rl-institut/super-repo/blob/develop/CHANGELOG.md)
+- [ ] 🐙 Follow the workflow in [CONTRIBUTING.md](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/CONTRIBUTING.md)
+- [ ] 📝 Update the [CHANGELOG.md](https://github.com/OpenEnergyPlatform/oedatamodel/blob/develop/CHANGELOG.md)
 - [ ] 📙 Update the documentation
 
 ### Reviewer
