@@ -159,7 +159,7 @@ The following is intended to provide a simple example table as well as a detaile
 | 2   | 1 | ["BB"]      | air     |    electricity |    capacity factor |      wind turbine |      onshore |      2016-02-07 08:00:00+01:00 |      2016-02-07 09:00:00+01:00 |      1 |      [0.21546274939004; 0.140089694955441] |      MW |       |      NUTS 2 aggregated to NUTS 1 and weighted per area | modelname and/or attribution |       |
 | ...       | ...          | ...        | ...            | ...      |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |      ... |
 
-## Datapackge description, conventions and examples
+## Datapackage description, conventions and examples
 As described in the introduction, a frictionless datapackage consists of csv files in which the data is stored and a json file named datapackage.json for metadata and to describe the data structure. Furthermore, it is important for the upload process to zip the datapackage to compress the amount of data. In this section, conventions are given for the folder structure in which the zipped datapackage must be present in order to be read. It also explains how the datapackage.json must be structured. 
 
 ### Metadata and data schema
@@ -180,7 +180,7 @@ To distinguish the tables from other projects, a new table name must be assigned
 For example, the tables should then be then called **"project_name_oed_scenario"** etc. . This allows the oedatamodel to be used by multiple projects. To learn how to create tables on the OEP see this [Guide](https://github.com/OpenEnergyPlatform/tutorial/blob/develop/upload/OEP_Upload_Process_Data_and_Metadata_oem2orm.ipynb).
 
 ### Upload a datapackage
-Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackges can be imported to the api via a website (requires a locally installed instance of the oedatamodel_api) as a zipped Datapackage folder and then uploaded to the OEP, optinally with or without using a mapping. The datapackge is validated before the upload. The validation is very strict. In order to avoid problems here, the [datapackage example](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/examples) should be adhered to very precisely.
+Subsequently, the [oedatamodel_api](https://github.com/open-modex/oedatamodel_api) can be used to upload datapackages. Datapackages can be imported to the api via a website (requires a locally installed instance of the oedatamodel_api) as a zipped Datapackage folder and then uploaded to the OEP, optionally with or without using a mapping. The datapackage is validated before the upload. The validation is very strict. In order to avoid problems here, the [datapackage example](https://github.com/OpenEnergyPlatform/oedatamodel/tree/develop/examples) should be adhered to very precisely.
 
 # FAQ
 This section collects answers to frequently asked questions about the application of the oedatamodel. If you have a question, please create an [issue](https://github.com/OpenEnergyPlatform/oedatamodel/issues/new) in this repository or use following contact.
