@@ -26,6 +26,16 @@ Here is a template for new release sections
 ### Removed
 -
 ```
+
+## [1.2.0] - 20XX-MM-DD
+
+### Added
+Test Test merge konflikt
+-
+### Changed
+-
+### Removed
+
 ## Current
 
 ### [1.1.1]
